@@ -58,20 +58,20 @@ export default function Product({ product }){
         <div>
           {
             product.discount > 0 &&
-            <div className="product_card_extra_discount">{product.discount}% off</div>
+            <div className="product_card_extra_discount">-{product.discount}%</div>
           }
         </div>
       </div>
       <div className="product_card_info">
         <h5 className="product_card_info_name">{product.name}</h5>
-        <p className="product_card_info_category">{product.breadcrumbs}</p>
+        <p className={`product_card_info_category ${product.discount === 0 ? 'e' : ''}`}>{product.breadcrumbs}</p>
         <div className="product_card_info_extra">
           <div className="product_card_info_extra_block">
-            <p className="product_card_info_extra_price">{currency(newPrice)}</p>
             {
               product.discount > 0 &&
               <p className="product_card_info_extra_discount">{currency(product.price)}</p>
             }
+            <p className='product_card_info_extra_price'>{currency(newPrice)}</p>
           </div>
           <div className="product_card_info_extra_icons" >
             <img 
