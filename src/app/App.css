@@ -3,8 +3,12 @@
   flex-direction: row;
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .App_section{
-  display: block;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }

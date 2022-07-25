@@ -7,3 +7,8 @@ body{
   padding: 0;
   background-color: #ECEFF0;
 }
+
+#root{
+  margin: 0;
+  padding: 0;
+}
