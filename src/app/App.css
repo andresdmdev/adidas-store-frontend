@@ -12,3 +12,12 @@
   flex-direction: column;
   width: 100%;
 }
+
+.section_main {
+  margin: 0 auto;
+}
+
+.section_main_loading {
+  font-size: 2rem;
+  font-weight: 600;
+}
