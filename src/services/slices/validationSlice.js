@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  option: 'Home'
+  option: 'home'
 }
 
 const validationSlice = createSlice({

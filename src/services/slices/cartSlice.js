@@ -64,6 +64,32 @@ const cartSlice = createSlice({
       }
 
       localStorage.setItem('cartProducts', JSON.stringify(state.cartProducts))
+    },
+    addSingleProductToCart: (state, action) => {
+
+      const { id: idProduct, quantity } = action.payload
+
+      if(state.cartProducts.length !== 0){
+
+        const findProduct = state.cartProducts.find(elem => elem.id === idProduct)
+
+        if(findProduct === undefined){
+          state.cartProducts.push({ ...action.payload, quantity: quantity })
+        } else {
+          state.cartProducts = state.cartProducts.map(elem => {
+            if(idProduct === elem.id){
+              return { ...elem, quantity: quantity  }
+            } else{
+              return { ...elem, quantity: elem.quantity }
+            }
+          })
+        }
+      } else {
+        
+        state.cartProducts.push({ ...action.payload, quantity: quantity })
+      }
+
+      localStorage.setItem('cartProducts', JSON.stringify(state.cartProducts))
     }
   }
 })
@@ -72,7 +98,8 @@ export const {
     addProductToCart, 
     resetCart, 
     deleteProductCart,
-    deleteQuantityProduct
+    deleteQuantityProduct,
+    addSingleProductToCart
 } = cartSlice.actions
 
 export const selectAllCartproducts = (state) => state.cart.cartProducts

@@ -6,7 +6,8 @@ const URL = 'https://api-store-adidas.herokuapp.com/api/products'
 const initialState = {
   products: [],
   status: 'idle',
-  error: null
+  error: null,
+  singleProduct: {}
 }
 
 export const getAllProducts = createAsyncThunk("products/getAllProducts", async () => {
@@ -30,7 +31,11 @@ export const searchProductByName = createAsyncThunk("products/searchProductByNam
 const productsSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {},
+  reducers: {
+    singleProduct: (state, action) => {
+      state.singleProduct = action.payload
+    }
+  },
   extraReducers(builder) {
     builder
       .addCase(getAllProducts.pending, (state, action) => {
@@ -61,6 +66,10 @@ const productsSlice = createSlice({
       })
   }
 })
+
+export const { singleProduct } = productsSlice.actions;
+
+export const selectSingleProduct = (state) => state.products.singleProduct;
 
 export const selectAllProducts = (state) => state.products.products;
 
