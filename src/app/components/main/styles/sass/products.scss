@@ -1,11 +1,4 @@
-.section_main {
-  margin: 0 20px 0 20px;
-}
-
-.section_main_loading {
-  font-size: 2rem;
-  font-weight: 600;
-}
+// Design for large pages +1280px
 
 .products {
   display: grid;
@@ -24,13 +17,13 @@
   height: 367px; /* 352px */
   background-color: #F9F9F9;
   margin-bottom: 26px;
+  margin-right: 16px;
   border: none;
   border-radius: 30px;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
   transition: all 200ms ease;
-  cursor: pointer;
   display: flex;
- flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .product_card:hover{

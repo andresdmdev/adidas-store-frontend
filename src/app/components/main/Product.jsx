@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addProductToCart, deleteProductCart, selectAllCartproducts } from "../../../services/slices/cartSlice";
 import { addProductToFavorites, selectAllFavorites } from "../../../services/slices/favoriteSlice";
@@ -8,6 +8,9 @@ import cartDark from '../../../assets/cart.svg'
 import heart from '../../../assets/heart.svg'
 import loved from '../../../assets/loved.svg'
 import currency from "../../helpers/calcCurrency";
+import { changeOption } from "../../../services/slices/validationSlice";
+import { singleProduct } from "../../../services/slices/productsSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function Product({ product }){
 
@@ -16,6 +19,8 @@ export default function Product({ product }){
   const favProducts = useSelector(selectAllFavorites)
 
   const cartProducts = useSelector(selectAllCartproducts)
+
+  const navigate = useNavigate()
 
   let favorite = false
 
@@ -51,9 +56,17 @@ export default function Product({ product }){
 
   const newPrice = product.price * (1 - product.discount/100)
 
+  function handleSingleProduct(){
+    dispatch(changeOption('product'))
+
+    navigate(`/product/:${product.id}`, {replace: true})
+
+    dispatch(singleProduct(product))
+  }
+
   return (
     <div className="product_card">
-      <div className="product_card_img">
+      <div className="product_card_img"  onClick={handleSingleProduct}>
         <img src={product.image1} alt="photo" className="product_card_img_photo" />
         <div>
           {
@@ -63,7 +76,7 @@ export default function Product({ product }){
         </div>
       </div>
       <div className="product_card_info">
-        <h5 className="product_card_info_name">{product.name}</h5>
+        <h5 className="product_card_info_name" onClick={handleSingleProduct}>{product.name}</h5>
         <p className={`product_card_info_category ${product.discount === 0 ? 'e' : ''}`}>{product.breadcrumbs}</p>
         <div className="product_card_info_extra">
           <div className="product_card_info_extra_block">
