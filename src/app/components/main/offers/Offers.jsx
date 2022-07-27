@@ -12,17 +12,21 @@ export default function Offers(){
     data
       .filter(product => product.discount > 0)
       .map(product => (
-      <Product
-        product={product} 
-        key={product.id} 
-      />
+        <Product
+          product={product} 
+          key={product.id} 
+        />
     ))
 
   return (
     <>
       <h1 className="products_title">Offers</h1>
       <div className="products">
-        {products}
+        {
+          products.length > 0 ?
+          products :
+          <p>There are no products</p>
+        }
       </div>
     </>
   )
