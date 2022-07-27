@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { searchProductByName, getAllProducts } from "../../../services/slices/productsSlice";
 import { changeOption, selectOption } from "../../../services/slices/validationSlice";
 import search from '../../../assets/search.svg'
+import { useNavigate } from "react-router-dom";
 
 export default function SearchBar(){
 
@@ -13,24 +14,26 @@ export default function SearchBar(){
 
   const option = useSelector(selectOption)
 
+  const navigate = useNavigate()
+
   function handleSubmit(e){
     e.preventDefault()
     if(productName === ''){
 
       dispatch(getAllProducts())
 
-      if(option === 'Cart' || option === 'Favorites' || option === 'Shoppings'){
-        dispatch(changeOption('Home'))
+      if(option !== 'home' && option !== 'offers'){
+        dispatch(changeOption('home'))
+        navigate(`/`, {replace: true})
       }
-      
-    } else if(option === 'Cart' || option === 'Favorites' || option === 'Shoppings'){
-
-      dispatch(changeOption('Home'))
-
-      dispatch(searchProductByName(productName))
       
     } else {
       dispatch(searchProductByName(productName))
+
+      if(option !== 'home' && option !== 'offers'){
+        dispatch(changeOption('home'))
+        navigate(`/`, {replace: true})
+      }
     }
   }
 

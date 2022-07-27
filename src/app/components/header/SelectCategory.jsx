@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { selectCategory, saveCategory, allCategories, getAllCategoriesProducts } from "../../../services/slices/categorySlice";
+import { changeOption, selectOption } from "../../../services/slices/validationSlice";
 import './styles/headerStyles.css'
 
 export default function SelectCategory(){
@@ -10,7 +12,11 @@ export default function SelectCategory(){
 
   const category = useSelector(selectCategory)
 
+  const option = useSelector(selectOption)
+
   const dispatch = useDispatch()
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(getAllCategoriesProducts())
@@ -27,6 +33,16 @@ export default function SelectCategory(){
 
   function handleChange(e){
     dispatch(saveCategory(e.target.value))
+
+    if(option !== 'home'){
+      dispatch(changeOption('home'))
+    }
+  
+    if(e.target.value === ''){
+      navigate('/', {replace: true})
+    } else {
+      navigate(`/category/${e.target.value}`, {replace: true})
+    }
   }
 
   return(

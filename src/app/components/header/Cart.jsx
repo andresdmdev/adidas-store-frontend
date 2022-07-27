@@ -4,15 +4,17 @@ import { changeOption } from "../../../services/slices/validationSlice";
 import cartLigth from '../../../assets/cart-ligth.svg';
 import cartDark from '../../../assets/cart-dark.svg';
 import { selectAllCartproducts } from "../../../services/slices/cartSlice";
-import { saveCategory } from "../../../services/slices/categorySlice";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart(){
 
   const dispatch = useDispatch()
 
+  const navigate = useNavigate()
+
   function handleClick(){
-    dispatch(saveCategory(''))
-    dispatch(changeOption('Cart'))
+    dispatch(changeOption('cart'))
+    navigate('/cart', {replace:true})
   }
 
   const verifyCart = useSelector(selectAllCartproducts)
