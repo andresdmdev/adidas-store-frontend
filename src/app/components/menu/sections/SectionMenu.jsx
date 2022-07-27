@@ -1,32 +1,38 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { saveCategory } from "../../../../services/slices/categorySlice";
-import { getAllProducts } from "../../../../services/slices/productsSlice";
-import { changeOption, selectOption } from "../../../../services/slices/validationSlice";
+import React, { useState } from "react";
 import heart from '../../../../assets/heart.svg'
 import shop from '../../../../assets/shop.svg'
 import home from '../../../../assets/home.svg'
 import offers from '../../../../assets/offers.svg'
+import homeDark from '../../../../assets/home-dark.svg'
+import shopDark from '../../../../assets/shop-dark.svg'
+import heartDark from '../../../../assets/heart-dark.svg'
+import offersDark from '../../../../assets/offers-dark.svg'
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { changeOption, selectOption } from "../../../../services/slices/validationSlice";
+import { saveCategory } from "../../../../services/slices/categorySlice";
 
 export default function SectionMenu(){
 
   const assets = [
-    { title: 'Home', img: home },
-    { title: 'Offers', img: offers },
-    { title: 'Favorites', img: heart },
-    { title: 'Shoppings', img: shop },
+    { title: 'home', img: home, imgDark: homeDark },
+    { title: 'offers', img: offers,imgDark: offersDark },
+    { title: 'favorites', img: heart, imgDark: heartDark },
+    { title: 'shoppings', img: shop, imgDark: shopDark },
   ]
 
-  const option = useSelector(selectOption)
-
+  const navigate = useNavigate()
+  const section = useSelector(selectOption)
   const dispatch = useDispatch()
 
   function handleClick(e){
-    dispatch(saveCategory(''))
+
+    const format = e.target.id
+
+    navigate(`/${format === 'home' ? '' : format}`, {replace:true})
+
     dispatch(changeOption(e.target.id))
-    if(option === 'Home' || option === 'Offers'){
-      dispatch(getAllProducts())
-    }
+    dispatch(saveCategory(''))
   }
 
   const menuButtons = assets.map(option => (
@@ -37,14 +43,14 @@ export default function SectionMenu(){
       onClick={(e) => handleClick(e)}
     >
       <img 
-        src={option.img} 
+        src={section === option.title ? option.imgDark : option.img} 
         alt={option.title} 
         id={option.title} 
-        className='section_menu_buttons_links_img'
+        className={`section_menu_buttons_links_img ${section === option.title && 'toggle'}`}
       />
       <h5 
         id={option.title}
-        className='section_menu_buttons_links_name'
+        className={`section_menu_buttons_links_name ${section === option.title && 'toggle'}`}
       >
       {option.title}
       </h5>

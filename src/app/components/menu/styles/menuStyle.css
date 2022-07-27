@@ -80,6 +80,17 @@
   font-weight: 500;
   font-size: 1rem;
   line-height: 1rem;
+  text-transform: capitalize;
+}
+
+.section_menu_buttons_links_img.toggle {
+  width: 30px;
+  height: 30px;
+  transition: all 1ms ease;
+}
+
+.section_menu_buttons_links_name.toggle {
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=menuStyle.css.map */

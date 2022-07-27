@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import userPhoto from '../../../../assets/user.svg'
+import hours from "../../../helpers/calcHour";
 
 export default function SectionProfil(){
+
   return(
     <div className="section_menu_profil">
       <img 
@@ -9,8 +11,8 @@ export default function SectionProfil(){
         alt="User photo" 
         className="section_menu_profil_photo"
       />
-      <h4 className="section_menu_profil_greetings">Good morning 👏</h4>
-      <h2 className="section_menu_profil_name">Cesar Marquez</h2>
+      <h4 className="section_menu_profil_greetings">{hours()} 👏</h4>
+      <h2 className="section_menu_profil_name">Andrés Márquez</h2>
     </div>
   )
 }
