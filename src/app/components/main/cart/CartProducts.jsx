@@ -25,15 +25,22 @@ export default function CartProducts(){
     }
   }
 
+  function handleTicket(){
+    setShowTicket(prevState => !prevState)
+  }
+
   return (
     <>
       <h1 className="products_title">Cart</h1>
       <div
-        style={{ cursor: products.length > 0 ? 'pointer' : 'not-allowed' }}
+        style={{ 
+          cursor: products.length > 0 ? 'pointer' : 'not-allowed',
+          backgroundColor: products.length > 0 ? '#F2D32F' : '#6B6A6A' 
+        }}
         className='products_cart_btn'
         onClick={handleClick}
       >
-      Order
+      Make order
       </div>
       <div className="products_cart">
         {
@@ -46,7 +53,7 @@ export default function CartProducts(){
         showTicket && 
         <Ticket 
           products={data} 
-          showTicket={handleClick} 
+          showTicket={handleTicket} 
         />
       }
     </>

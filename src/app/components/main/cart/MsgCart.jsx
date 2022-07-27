@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { resetCart } from "../../../../services/slices/cartSlice";
+import { useNavigate } from "react-router-dom";
 import { changeOption } from "../../../../services/slices/validationSlice";
 import './styles/cartProduct.css'
 
@@ -8,13 +8,14 @@ export default function MsgCart({ showTicket }){
 
   const dispatch = useDispatch()
 
+  const navigate = useNavigate()
+
   function handleClickShoppings(){
-    dispatch(resetCart())
-    dispatch(changeOption('Shoppings'))
+    dispatch(changeOption('shoppings'))
+    navigate('/shoppings', {replace:true})
   }
 
   function handleClickContinue(){
-    dispatch(resetCart())
     showTicket()
   }
 

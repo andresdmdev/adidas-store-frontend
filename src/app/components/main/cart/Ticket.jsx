@@ -5,6 +5,7 @@ import './styles/cartProduct.css'
 import close from '../../../../assets/close.svg'
 import { useState } from "react";
 import MsgCart from "./MsgCart";
+import { resetCart } from "../../../../services/slices/cartSlice";
 
 export default function Ticket({ products, showTicket }){
 
@@ -47,6 +48,8 @@ export default function Ticket({ products, showTicket }){
 
   function handleBuyClick(){
     dispatch(addProductToShoppings(newData))
+
+    dispatch(resetCart())
 
     setShowMsg(true)
   }
