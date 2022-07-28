@@ -68,6 +68,7 @@ export default function Ticket({ products, showTicket }){
       <div className='ticket_info_products_items_p-price'>
         {currency((elem.price * elem.quantity * (1 - elem.discount/100)).toFixed(2))}
       </div>
+      <hr />
     </div>
   )
   
