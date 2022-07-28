@@ -1,36 +1,33 @@
 import { useSelector } from 'react-redux'
 import { Route, Routes } from 'react-router-dom'
-import { showError } from '../services/slices/productsSlice'
+import { selectShowSingleProduct } from '../services/slices/validationSlice'
 import './App.css'
-import Header from './components/header/Header'
-import MainSections from './components/main/MainSections'
+import AppSection from './AppSection'
+import HeaderMovil from './components/header/movil/HeaderMovil'
+import SearchMovil from './components/header/movil/SearchMovil'
+import SelectCategoryMovil from './components/header/movil/SelectCategoryMovil'
 import Menu from './components/menu/Menu'
+import MenuMovil from './components/menu/MenuMovil'
 
 function App() {
 
-  const error = useSelector(showError)
+  const singleProduct = useSelector(selectShowSingleProduct)
 
   return (
     <div className='App'>
-      <>
-        <Routes>
-          <Route path='*' element={<Menu />} />
-        </Routes>
-      </>
-      <div className='App_section'>
-        <Routes>
-          <Route path='*' element={<Header />} />
-        </Routes>
-        <div className="section_main">
-          { error ? 
-            <>
-              <h2>{error}</h2>
-              <p>Please, search again</p>
-            </> : 
-            <MainSections />
-          }
-        </div>
+      <HeaderMovil />
+      <MenuMovil />
+      { 
+        !singleProduct &&
+        <>
+          <SearchMovil />
+          <SelectCategoryMovil />
+        </>
+      }
+      <div className='App_menu'>
+        <Menu />
       </div>
+      <AppSection />
     </div>
   )
 }

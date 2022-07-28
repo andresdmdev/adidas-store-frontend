@@ -21,3 +21,26 @@
   font-size: 2rem;
   font-weight: 600;
 }
+
+.App_menu_movil{
+  display: none;
+}
+
+
+@media (min-width: 300px) and (max-width: 800px){
+
+  .App_menu{
+    display: none;
+  }
+
+  .App{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .App_menu_movil{
+    display: flex;
+    margin-top: 10rem;
+  }
+
+}
