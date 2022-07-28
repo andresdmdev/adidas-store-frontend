@@ -1,21 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import { addSingleProductToCart } from "../../../../services/slices/cartSlice";
-import { selectSingleProduct } from "../../../../services/slices/productsSlice";
+import { searchSingleProductById, selectSingleProduct } from "../../../../services/slices/productsSlice";
+import { singleProduct } from "../../../../services/slices/validationSlice";
 import currency from "../../../helpers/calcCurrency";
 import './styles/singleProduct.css'
 
 export default function SingleProduct(){
 
   const [quantity, setQuantity] = useState(1)
-  
-  const product = useSelector(selectSingleProduct)
 
   const dispatch = useDispatch()
 
+  const navigate = useNavigate()
+
+  const { id } = useParams()
+
+  useEffect(() => {
+    dispatch(searchSingleProductById(id))
+  }, [dispatch, searchSingleProductById])
+  
+  const product = useSelector(selectSingleProduct)
+
   function handleMinus(){
     setQuantity(prevState => prevState - 1)
-
   }
 
   function handlePlus(){
@@ -24,6 +33,10 @@ export default function SingleProduct(){
 
   function handleBuy(){
     dispatch(addSingleProductToCart({ ...product, quantity: quantity}))
+
+    navigate('/cart', {replace:true})
+
+    dispatch(singleProduct())
   }
   
   return (

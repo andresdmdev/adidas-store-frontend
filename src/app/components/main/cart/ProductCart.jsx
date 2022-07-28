@@ -57,7 +57,7 @@ export default function ProductCart({ product }){
               product.discount > 0 &&
               <p className="product_cart_card_info_section_b_discount">{price}</p>
             }
-            <p className="product_cart_card_info_section_b_price">{currency((product.price * (1 - product.discount/100) * product.quantity))}</p>
+            <p className={`product_cart_card_info_section_b_price ${product.discount === 0 && 'movil'}`}>{currency((product.price * (1 - product.discount/100) * product.quantity))}</p>
           </div>
           <img 
             className="product_cart_card_info_section_b_delete" 

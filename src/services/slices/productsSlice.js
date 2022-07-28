@@ -28,14 +28,19 @@ export const searchProductByName = createAsyncThunk("products/searchProductByNam
     }
 })
 
+export const searchSingleProductById = createAsyncThunk("products/searchSingleProductById", async (id) => {
+  try {
+    const res = await axios.get(`${URL}/${id}`)
+    return res.data
+  } catch (error) {
+    return error.message
+  }
+})
+
 const productsSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {
-    singleProduct: (state, action) => {
-      state.singleProduct = action.payload
-    }
-  },
+  reducers: {},
   extraReducers(builder) {
     builder
       .addCase(getAllProducts.pending, (state, action) => {
@@ -64,10 +69,18 @@ const productsSlice = createSlice({
           state.products = [...action.payload]
         }
       })
+      .addCase(searchSingleProductById.fulfilled, (state, action) => {
+        state.status = 'success'
+
+        if(!Array.isArray(action.payload)){
+          state.error = 'Not found'
+        } else {
+          state.error = null
+          state.singleProduct = action.payload[0]
+        }
+      })
   }
 })
-
-export const { singleProduct } = productsSlice.actions;
 
 export const selectSingleProduct = (state) => state.products.singleProduct;
 
