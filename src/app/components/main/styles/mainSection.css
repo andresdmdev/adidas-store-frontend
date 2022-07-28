@@ -1,0 +1,23 @@
+.loader {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 5px solid #313030;
+  border-right: 5px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  display: flex;
+  margin: 10rem auto;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=mainSection.css.map */

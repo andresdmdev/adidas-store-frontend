@@ -1,0 +1,305 @@
+// Design for large pages +1280px
+
+.section_header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 26px 26px 16px 26px;
+}
+
+// Section Category
+
+select {
+  display: flex;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  line-height: inherit;
+  outline: none;
+}
+
+.section_header_category{
+  display: flex;
+  align-items: center;
+  width: 215px;
+  height: 42px;
+  border: none;
+  border-radius: 60px;
+  padding: 0 1rem 0 1rem;
+  background-color: #f9f9f9;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+} 
+
+.section_header_category_select{
+  height: 40px;
+  width: 100%;
+  text-indent: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #313030;
+  border-radius: 60px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+// Section SearchBar
+
+.section_header_search{
+  display: flex;
+  width: 650px;
+  height: 42px;
+  background-color: #f9f9f9;
+  border-radius: 60px;
+  align-items: center;
+  padding: 0 1.5rem;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.section_header_search_form{
+  display: flex;
+  align-items: center;
+}
+
+.section_header_search_img{
+  margin-top: 4px;
+  width: 25px;
+}
+
+.section_header_search_form_btn{
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0 10px 0 0;
+  cursor: pointer;
+}
+
+.section_header_search_input{
+  border: none;
+  background-color: #f9f9f9;
+  appearance: none;
+  outline: none;
+  margin: 0 0 0 .65rem;
+  padding: 2px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  width: 600px;
+  cursor: pointer;
+}
+
+.section_header_search_input:focus{
+  border-bottom: 1px solid #777575;
+}
+
+// Section Cart btn
+
+
+.section_header_cart{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 150px;
+  height: 42px;
+  background-color: #f9f9f9;
+  border-radius: 60px;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.section_header_cart_img{
+  width: 25px;
+}
+
+.header_movil{
+  display: none;
+}
+
+.App_search_movil{
+  display: none;
+}
+
+.category_movil{
+  display: none;
+}
+
+
+
+@media (min-width: 800px) and (max-width: 1400px){
+
+  .section_header_category{
+    width: 180px;
+  } 
+  
+  .section_header_category_select{
+    font-size: 0.85rem;
+  }
+  
+  // Section SearchBar
+  
+  .section_header_search{
+    width: 545px;
+  }
+  
+  .section_header_search_img{
+    width: 22px;
+  }
+  
+  .section_header_search_input{
+    font-size: 0.85rem;
+    width: 490px;
+  }
+  
+  // Section Cart btn
+  
+  .section_header_cart{
+    width: 125px;
+  }
+  
+  .section_header_cart_img{
+    width: 22px;
+  }
+
+}
+
+
+@media (min-width: 300px) and (max-width: 800px){
+  // Movil
+  .section_header{
+    display: none;
+  }
+
+  .header_movil{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 20px 0px 20px;
+    width: 350px;
+  }
+
+  .header_movil_profil{
+    width: 50px;
+    height: 50px;
+  }
+
+  .header_movil_back{
+    width: 50px;
+    height: 50px;
+    background-color: #f9f9f9;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .header_movil_back_logo{
+    width: 18px;
+    margin-left: -3px;
+  }
+
+
+  .header_movil_logo{
+    width: 50px;
+    height: 37.29px;
+    cursor: pointer;
+  }
+
+  .header_movil_menu_logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #313030;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .header_movil_menu_logo.ligth{
+    background-color: #f9f9f9;
+  }
+
+  .header_movil_menu_logo_icon{
+    width: 27px;
+    height: 16px;
+  }
+
+  .header_movil_menu_logo_icon.ligth{
+    color: #313030;
+  }
+
+  .App_search_movil{
+    display: flex;
+    margin: 50px auto 0 auto;
+  }
+
+  .section_header_search{
+    width: 302px;
+    height: 42px;
+    padding: 0 1rem;
+  }
+
+  .section_header_search_img{
+    margin-top: 4px;
+    width: 25px;
+  }
+
+  .section_header_search_form_btn{
+    margin: 0;
+  }
+
+  .section_header_search_input{
+    font-size: 0.875rem;
+    width: 255px;
+  }
+
+  .category_movil{
+    display: flex;
+    overflow-x: scroll;
+    flex-direction: column;
+  }
+
+  .category_movil_title{
+    margin: 12px 0 0 20px;
+    padding: 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .section_header_category_block_movil{
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    margin: 0 0 8px 0;
+    padding: 10px 0 12px 32px;
+  }
+
+  .section_header_category_movil{
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 10px;
+    font-weight: 500;
+    background-color:#313030;
+    color: #f9f9f9;
+    margin-right: 14px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+}
