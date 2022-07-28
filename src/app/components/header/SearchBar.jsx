@@ -24,7 +24,7 @@ export default function SearchBar(){
 
       if(option !== 'home' && option !== 'offers'){
         dispatch(changeOption('home'))
-        navigate(`/`, {replace: true})
+        navigate(`/adidas-store-frontend/`, {replace: true})
       }
       
     } else {
@@ -32,7 +32,7 @@ export default function SearchBar(){
 
       if(option !== 'home' && option !== 'offers'){
         dispatch(changeOption('home'))
-        navigate(`/`, {replace: true})
+        navigate(`/adidas-store-frontend/`, {replace: true})
       }
     }
   }

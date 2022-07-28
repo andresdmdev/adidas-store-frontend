@@ -12,7 +12,7 @@ export default function MsgCart({ showTicket }){
 
   function handleClickShoppings(){
     dispatch(changeOption('shoppings'))
-    navigate('/shoppings', {replace:true})
+    navigate('/adidas-store-frontend/shoppings', {replace:true})
   }
 
   function handleClickContinue(){

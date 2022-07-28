@@ -26,7 +26,7 @@ export default function HeaderMovil(){
   function handleClick(){
     dispatch(singleProduct())
     
-    navigate('/', {replace: true})
+    navigate('/adidas-store-frontend/', {replace: true})
   }
 
   return (

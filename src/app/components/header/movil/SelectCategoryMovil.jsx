@@ -43,9 +43,9 @@ export default function SelectCategoryMovil(){
     }
   
     if(e.target.id === ''){
-      navigate('/', {replace: true})
+      navigate('/adidas-store-frontend/', {replace: true})
     } else {
-      navigate(`/category/${e.target.id}`, {replace: true})
+      navigate(`/adidas-store-frontend/category/${e.target.id}`, {replace: true})
     }
   }
 

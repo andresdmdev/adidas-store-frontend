@@ -30,7 +30,7 @@ export default function SectionMenu(){
 
     const format = e.target.id
 
-    navigate(`/${format === 'home' ? '' : format}`, {replace:true})
+    navigate(`/adidas-store-frontend/${format === 'home' ? '' : format}`, {replace:true})
 
     dispatch(changeOption(e.target.id))
     dispatch(saveCategory(''))
