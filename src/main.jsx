@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<App />}>
+          <Route path='/adidas-store-frontend/' element={<App />}>
             <Route index element={<AllProducts />}/>
             <Route path='offers' element={<Offers />} />
             <Route path='favorites' element={<FavoriteProducts />} />
