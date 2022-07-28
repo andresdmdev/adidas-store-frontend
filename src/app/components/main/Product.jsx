@@ -8,8 +8,7 @@ import cartDark from '../../../assets/cart.svg'
 import heart from '../../../assets/heart.svg'
 import loved from '../../../assets/loved.svg'
 import currency from "../../helpers/calcCurrency";
-import { changeOption } from "../../../services/slices/validationSlice";
-import { singleProduct } from "../../../services/slices/productsSlice";
+import { changeOption, singleProduct } from "../../../services/slices/validationSlice";
 import { useNavigate } from "react-router-dom";
 
 export default function Product({ product }){
@@ -59,9 +58,9 @@ export default function Product({ product }){
   function handleSingleProduct(){
     dispatch(changeOption('product'))
 
-    navigate(`/product/:${product.id}`, {replace: true})
+    navigate(`/product/${product.id}`, {replace: true})
 
-    dispatch(singleProduct(product))
+    dispatch(singleProduct())
   }
 
   return (
@@ -78,7 +77,7 @@ export default function Product({ product }){
       <div className="product_card_info">
         <h5 className="product_card_info_name" onClick={handleSingleProduct}>{product.name}</h5>
         <p className={`product_card_info_category ${product.discount === 0 ? 'e' : ''}`}>{product.breadcrumbs}</p>
-        <div className="product_card_info_extra">
+        <div className={`product_card_info_extra ${product.discount === 0 && 'movil'}`}>
           <div className="product_card_info_extra_block">
             {
               product.discount > 0 &&
