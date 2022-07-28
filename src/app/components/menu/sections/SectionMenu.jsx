@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import heart from '../../../../assets/heart.svg'
 import shop from '../../../../assets/shop.svg'
 import home from '../../../../assets/home.svg'
@@ -9,8 +9,9 @@ import heartDark from '../../../../assets/heart-dark.svg'
 import offersDark from '../../../../assets/offers-dark.svg'
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { changeOption, selectOption } from "../../../../services/slices/validationSlice";
+import { changeOption, menuMovil, selectOption } from "../../../../services/slices/validationSlice";
 import { saveCategory } from "../../../../services/slices/categorySlice";
+import SectionCartMovil from "./SectionCartMovil";
 
 export default function SectionMenu(){
 
@@ -18,7 +19,7 @@ export default function SectionMenu(){
     { title: 'home', img: home, imgDark: homeDark },
     { title: 'offers', img: offers,imgDark: offersDark },
     { title: 'favorites', img: heart, imgDark: heartDark },
-    { title: 'shoppings', img: shop, imgDark: shopDark },
+    { title: 'shoppings', img: shop, imgDark: shopDark }
   ]
 
   const navigate = useNavigate()
@@ -33,6 +34,10 @@ export default function SectionMenu(){
 
     dispatch(changeOption(e.target.id))
     dispatch(saveCategory(''))
+
+    if(window.innerWidth < 800){
+      dispatch(menuMovil())
+    }
   }
 
   const menuButtons = assets.map(option => (
@@ -61,6 +66,7 @@ export default function SectionMenu(){
     <div className="section_menu_buttons">
       <h4 className="section_menu_buttons_title">Menu</h4>
       {menuButtons}
+      <SectionCartMovil handleClick={handleClick} section={section} />
     </div>
   )
 }
