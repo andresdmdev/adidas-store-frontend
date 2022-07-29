@@ -58,7 +58,7 @@ export default function Product({ product }){
   function handleSingleProduct(){
     dispatch(changeOption('product'))
 
-    navigate(`/adidas-store-frontend/product/${product.id}`, {replace: true})
+    navigate(`/product/${product.id}`, {replace: true})
 
     dispatch(singleProduct())
   }

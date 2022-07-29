@@ -34,7 +34,7 @@ export default function SingleProduct(){
   function handleBuy(){
     dispatch(addSingleProductToCart({ ...product, quantity: quantity}))
 
-    navigate('/adidas-store-frontend/cart', {replace:true})
+    navigate('/cart', {replace:true})
 
     dispatch(singleProduct())
   }

@@ -39,9 +39,9 @@ export default function SelectCategory(){
     }
   
     if(e.target.value === ''){
-      navigate('/adidas-store-frontend/', {replace: true})
+      navigate('/', {replace: true})
     } else {
-      navigate(`/adidas-store-frontend/category/${e.target.value}`, {replace: true})
+      navigate(`/category/${e.target.value}`, {replace: true})
     }
   }
 

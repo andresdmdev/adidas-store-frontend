@@ -14,7 +14,7 @@ export default function Cart(){
 
   function handleClick(){
     dispatch(changeOption('cart'))
-    navigate('/adidas-store-frontend/cart', {replace:true})
+    navigate('/cart', {replace:true})
   }
 
   const verifyCart = useSelector(selectAllCartproducts)

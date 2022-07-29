@@ -5,7 +5,7 @@ import './index.css'
 import { store } from './services/store/store.js'
 import { Provider } from 'react-redux'
 import { getAllProducts } from './services/slices/productsSlice.js'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 import AllProducts from './app/components/main/allProducts/AllProducts'
 import Offers from './app/components/main/offers/Offers'
 import FavoriteProducts from './app/components/main/favorites/FavoriteProducts'
@@ -19,9 +19,9 @@ store.dispatch(getAllProducts())
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <Router>
         <Routes>
-          <Route path='/adidas-store-frontend/' element={<App />}>
+          <Route path='/' element={<App />}>
             <Route index element={<AllProducts />}/>
             <Route path='offers' element={<Offers />} />
             <Route path='favorites' element={<FavoriteProducts />} />
@@ -33,7 +33,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             </Route>
           </Route>
         </Routes>
-      </BrowserRouter>
+      </Router>
     </Provider>
   </React.StrictMode>
 )
