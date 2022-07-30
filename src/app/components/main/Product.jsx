@@ -5,7 +5,10 @@ import {
   deleteProductCart, 
   selectAllCartproducts 
 } from "../../../services/slices/cartSlice";
-import { addProductToFavorites, selectAllFavorites } from "../../../services/slices/favoriteSlice";
+import { 
+  addProductToFavorites, 
+  selectAllFavorites 
+} from "../../../services/slices/favoriteSlice";
 import './styles/product.css'
 import cart from '../../../assets/cart-ligth.svg'
 import cartDark from '../../../assets/cart.svg'
@@ -25,9 +28,7 @@ export default function Product({ product }){
 
   const favorite = favProducts.find(elem => elem.id === product.id) || false
 
-  const cartProduct = 
-    cartProducts
-      .find(elem => elem.id === product.id) || 0
+  const cartProduct = cartProducts.find(elem => elem.id === product.id) || 0
 
   function handleClickCart(){
     if(cartProduct.quantity > 0){
