@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function Cart(){
 
+  const verifyCart = useSelector(selectAllCartproducts)
+
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
@@ -17,17 +19,13 @@ export default function Cart(){
     navigate('/cart', {replace:true})
   }
 
-  const verifyCart = useSelector(selectAllCartproducts)
-
-  const cartImg = verifyCart.length > 0 ? cartDark : cartLigth
-
   return(
     <div
       onClick={handleClick}
       className='section_header_cart'
     >
       <img 
-        src={cartImg} 
+        src={verifyCart.length > 0 ? cartDark : cartLigth} 
         alt="cart" 
         className="section_header_cart_img"
       />

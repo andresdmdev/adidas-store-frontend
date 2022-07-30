@@ -1,26 +1,19 @@
 import React from "react";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { selectCategory, saveCategory, allCategories, getAllCategoriesProducts } from "../../../services/slices/categorySlice";
+import { selectCategory, saveCategory, allCategories } from "../../../services/slices/categorySlice";
 import { changeOption, selectOption } from "../../../services/slices/validationSlice";
 import './styles/headerStyles.css'
 
 export default function SelectCategory(){
 
   const dataCategories = useSelector(allCategories)
-
   const category = useSelector(selectCategory)
-
   const option = useSelector(selectOption)
 
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
-
-  useEffect(() => {
-    dispatch(getAllCategoriesProducts())
-  }, [dispatch])
 
   const categories = 
     dataCategories
