@@ -1,16 +1,14 @@
 import React from "react";
-import { Route, Routes } from 'react-router-dom'
+import './App.css'
 import { useSelector } from "react-redux";
 import { showError } from "../services/slices/productsSlice";
 import Header from './components/header/Header'
 import MainSections from './components/main/MainSections'
-import './App.css'
 import { selectMenuMovil } from "../services/slices/validationSlice";
 
 export default function AppSection(){
 
   const error = useSelector(showError)
-
   const menu = useSelector(selectMenuMovil)
 
   return (

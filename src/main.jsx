@@ -14,6 +14,7 @@ import CategoriesProduct from './app/components/main/categories/CategoriesProduc
 import CartProducts from './app/components/main/cart/CartProducts'
 import SingleProduct from './app/components/main/singleProduct/SingleProduct'
 
+// Get all products form Api when the app starts
 store.dispatch(getAllProducts())
 
 ReactDOM.createRoot(document.getElementById('root')).render(

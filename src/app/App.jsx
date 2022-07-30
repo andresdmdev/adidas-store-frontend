@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
+import './App.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllCategoriesProducts } from '../services/slices/categorySlice'
 import { selectShowSingleProduct } from '../services/slices/validationSlice'
-import './App.css'
 import AppSection from './AppSection'
 import HeaderMovil from './components/header/movil/HeaderMovil'
 import SearchMovil from './components/header/movil/SearchMovil'
@@ -12,14 +12,15 @@ import MenuMovil from './components/menu/MenuMovil'
 
 function App() {
 
+  const singleProduct = useSelector(selectShowSingleProduct)
   const dispatch = useDispatch()
 
+  // Get all categories
   useEffect(() => {
     dispatch(getAllCategoriesProducts())
   }, [dispatch, getAllCategoriesProducts])
-
-  const singleProduct = useSelector(selectShowSingleProduct)
-
+  
+  // Extructure of app - Web and Movil
   return (
     <div className='App'>
       <HeaderMovil />
