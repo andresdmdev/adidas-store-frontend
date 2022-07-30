@@ -1,5 +1,6 @@
-import { useSelector } from 'react-redux'
-import { Route, Routes } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllCategoriesProducts } from '../services/slices/categorySlice'
 import { selectShowSingleProduct } from '../services/slices/validationSlice'
 import './App.css'
 import AppSection from './AppSection'
@@ -10,6 +11,12 @@ import Menu from './components/menu/Menu'
 import MenuMovil from './components/menu/MenuMovil'
 
 function App() {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getAllCategoriesProducts())
+  }, [dispatch, getAllCategoriesProducts])
 
   const singleProduct = useSelector(selectShowSingleProduct)
 
