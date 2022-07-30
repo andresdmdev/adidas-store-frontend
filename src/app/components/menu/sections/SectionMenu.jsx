@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import heart from '../../../../assets/heart.svg'
 import shop from '../../../../assets/shop.svg'
 import home from '../../../../assets/home.svg'
