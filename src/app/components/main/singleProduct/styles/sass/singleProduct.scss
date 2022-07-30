@@ -269,7 +269,7 @@
     flex-direction: column;
     margin: 1rem 20px 0 20px;
     width: 350px;
-    height: 600px;
+    height: 620px;
     justify-content: center;
     position:static;
   }
@@ -277,7 +277,7 @@
   .product_photo{
     width: 230px;
     height: 230px;
-    margin: 0 auto;
+    margin: 0 auto 10px auto;
   }
 
   .product_info{
@@ -329,7 +329,7 @@
   }
 
   .product_description{
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 1rem 0;
   }
 
   .product_description_title{
@@ -339,11 +339,12 @@
   .product_description_text{
     line-height: 1rem;
     font-size: .8rem;
+    height: 112px;
   }
 
   .product_details{
     font-size: 0.85rem;
-    margin: 0 1rem 10px 0;
+    margin: 0 1rem 7px 0;
   }
 
   .product_actions{
@@ -355,12 +356,14 @@
     width: 20px;
     height: 20px;
     margin: 0 6px 0 6px;
+    cursor: none;
   }
 
   .product_actions_btn{
     width: 150px;
     height: 50px;
     font-size: 1rem;
+    cursor: none;
   }
 
 }

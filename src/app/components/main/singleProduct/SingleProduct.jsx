@@ -72,7 +72,7 @@ export default function SingleProduct(){
         </div>
         <div className="product_details">
           <div className="product_color">Color: {product.color}</div>
-          <div className="product_size">Size: XXX</div>
+          <div className="product_size">Size: Unique</div>
           <div className="product_stats">{product.brand} {product.averageRating}</div>
         </div>
         <div className="product_actions">
