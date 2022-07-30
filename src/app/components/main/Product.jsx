@@ -16,6 +16,7 @@ import heart from '../../../assets/heart.svg'
 import loved from '../../../assets/loved.svg'
 import currency from "../../helpers/calcCurrency";
 import { useNavigate } from "react-router-dom";
+import { changeOption } from "../../../services/slices/validationSlice";
 
 export default function Product({ product }){
 
@@ -45,7 +46,7 @@ export default function Product({ product }){
   const newPrice = product.price * (1 - product.discount/100)
 
   function handleSingleProduct(){
-
+    dispatch(changeOption('product'))
     navigate(`/product/${product.id}`, {replace: true})
   }
 

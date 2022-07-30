@@ -9,7 +9,7 @@ import heartDark from '../../../../assets/heart-dark.svg'
 import offersDark from '../../../../assets/offers-dark.svg'
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { changeOption, menuMovil, selectOption } from "../../../../services/slices/validationSlice";
+import { changeOption, menuMovil, selectOption, singleProduct } from "../../../../services/slices/validationSlice";
 import { saveCategory } from "../../../../services/slices/categorySlice";
 import SectionCartMovil from "./SectionCartMovil";
 
@@ -37,6 +37,8 @@ export default function SectionMenu(){
 
     if(window.innerWidth < 800){
       dispatch(menuMovil())
+
+      dispatch(singleProduct(false))
     }
   }
 
