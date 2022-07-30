@@ -241,12 +241,12 @@
     }
     
     .product_card_extra_discount {
-      top: 137px;
-      left: 131px;
-      width: 34px;
-      height: 21.32px;
-      text-indent: 8px;
-      font-size: 0.55rem;
+      top: 131.75px;
+      left: 123px;
+      width: 42px;
+      height: 26.25px;
+      text-indent: 10px;
+      font-size: 0.7rem;
     }
     
     .product_card_info {
@@ -254,10 +254,11 @@
     }
     
     .product_card_info_name {
-      font-size: .5rem;
-      line-height: .5rem;
+      font-size: .6rem;
+      line-height: .6rem;
       height: 20px;
       width: 140px;
+      cursor: none;
     }
     
     .product_card_info_category {
@@ -265,12 +266,16 @@
     }
 
     .product_card_info_extra.movil{
-      margin: 5px 0 0 0;
+      margin: 7px 0 0 0;
     }
 
     .product_card_info_extra_price {
-      margin: -7px 0 0 0;
+      margin: -6px 0 0 5px;
       font-size: 0.875rem;
+    }
+
+    .product_card_info_extra_price.e{
+      margin: 0 0 0 5px;
     }
     
     .product_card_info_extra_discount {
@@ -284,11 +289,11 @@
     }
     
     .product_card_info_extra_icons_heart {
-      width: 16px;
+      width: 18px;
     }
     
     .product_card_info_extra_icons_shop {
-      width: 16px;
+      width: 18px;
     }
 }
 
