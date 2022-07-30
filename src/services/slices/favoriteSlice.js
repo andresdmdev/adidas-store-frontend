@@ -12,19 +12,14 @@ const favoriteSlice = createSlice({
 
       const idProduct = action.payload.id
 
-      if(state.favorites.length !== 0){
+      const findProduct = state.favorites.find(elem => elem.id === idProduct)
 
-        const findProduct = state.favorites.find(elem => elem.id === idProduct)
-
-        if(findProduct === undefined){
-          
-          state.favorites.push({ ...action.payload, favorite: true })
-        } else {
-
-          state.favorites = state.favorites.filter(elem => elem.id !== idProduct)
-        }
-      } else {
+      if(findProduct === undefined){
+        
         state.favorites.push({ ...action.payload, favorite: true })
+      } else {
+
+        state.favorites = state.favorites.filter(elem => elem.id !== idProduct)
       }
 
       localStorage.setItem('favorites', JSON.stringify(state.favorites))

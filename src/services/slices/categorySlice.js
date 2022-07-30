@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-const URL = 'https://api-store-adidas.herokuapp.com/api/products'
+import api from "../api/apiInstance";
 
 const initialState = {
   category: '',
@@ -10,7 +8,7 @@ const initialState = {
 
 export const getAllCategoriesProducts = createAsyncThunk("categories/getAllCategoriesProducts", async () => {
   try {
-    const res = await axios.get(URL)
+    const res = await api.get('')
     return [...res.data]
   } catch (error) {
     return error.message
@@ -50,6 +48,7 @@ const categorySlice = createSlice({
 export const { saveCategory } = categorySlice.actions
 
 export const selectCategory = (state) => state.categories.category;
+
 export const allCategories = (state) => state.categories.categories;
  
 export default categorySlice.reducer

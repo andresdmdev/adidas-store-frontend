@@ -12,24 +12,18 @@ const cartSlice = createSlice({
 
       const idProduct = action.payload.id
 
-      if(state.cartProducts.length !== 0){
+      const findProduct = state.cartProducts.find(elem => elem.id === idProduct)
 
-        const findProduct = state.cartProducts.find(elem => elem.id === idProduct)
-
-        if(findProduct === undefined){
-          state.cartProducts.push({ ...action.payload, quantity: 1 })
-        } else {
-          state.cartProducts = state.cartProducts.map(elem => {
-            if(idProduct === elem.id){
-              return { ...elem, quantity: elem.quantity + 1  }
-            } else{
-              return { ...elem, quantity: elem.quantity }
-            }
-          })
-        }
-      } else {
-        
+      if(findProduct === undefined){
         state.cartProducts.push({ ...action.payload, quantity: 1 })
+      } else {
+        state.cartProducts = state.cartProducts.map(elem => {
+          if(idProduct === elem.id){
+            return { ...elem, quantity: elem.quantity + 1  }
+          } else{
+            return { ...elem, quantity: elem.quantity }
+          }
+        })
       }
 
       localStorage.setItem('cartProducts', JSON.stringify(state.cartProducts))
@@ -60,7 +54,6 @@ const cartSlice = createSlice({
             return { ...elem, quantity: elem.quantity }
           }
         })
-        
       }
 
       localStorage.setItem('cartProducts', JSON.stringify(state.cartProducts))
@@ -69,24 +62,18 @@ const cartSlice = createSlice({
 
       const { id: idProduct, quantity } = action.payload
 
-      if(state.cartProducts.length !== 0){
+      const findProduct = state.cartProducts.find(elem => elem.id === idProduct)
 
-        const findProduct = state.cartProducts.find(elem => elem.id === idProduct)
-
-        if(findProduct === undefined){
-          state.cartProducts.push({ ...action.payload, quantity: quantity })
-        } else {
-          state.cartProducts = state.cartProducts.map(elem => {
-            if(idProduct === elem.id){
-              return { ...elem, quantity: quantity  }
-            } else{
-              return { ...elem, quantity: elem.quantity }
-            }
-          })
-        }
-      } else {
-        
+      if(findProduct === undefined){
         state.cartProducts.push({ ...action.payload, quantity: quantity })
+      } else {
+        state.cartProducts = state.cartProducts.map(elem => {
+          if(idProduct === elem.id){
+            return { ...elem, quantity: quantity  }
+          } else{
+            return { ...elem, quantity: elem.quantity }
+          }
+        })
       }
 
       localStorage.setItem('cartProducts', JSON.stringify(state.cartProducts))

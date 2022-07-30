@@ -17,12 +17,16 @@ const validationSlice = createSlice({
       state.menuMovil = !state.menuMovil
     },
     singleProduct: (state, action) => {
-      state.singleProduct = !state.singleProduct
+      state.singleProduct = action.payload
     }
   }
 })
 
-export const { changeOption, menuMovil, singleProduct } = validationSlice.actions
+export const { 
+  changeOption, 
+  menuMovil, 
+  singleProduct 
+} = validationSlice.actions
 
 export const selectOption = (state) => state.validation.option
 
