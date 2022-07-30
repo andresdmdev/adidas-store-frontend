@@ -33,11 +33,7 @@ export default function CartProducts(){
     <>
       <h1 className="products_title">Cart</h1>
       <div
-        style={{ 
-          cursor: products.length > 0 ? 'pointer' : 'not-allowed',
-          backgroundColor: products.length > 0 ? '#F2D32F' : '#6B6A6A' 
-        }}
-        className='products_cart_btn'
+        className={`products_cart_btn ${products.length > 0 ? 'e' : ''}`}
         onClick={handleClick}
       >
       Make order
