@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// It gets favorite products from local storage if They are
 const initialState = {
   favorites: JSON.parse(localStorage.getItem('favorites')) || [],
 }
@@ -8,6 +9,7 @@ const favoriteSlice = createSlice({
   name: 'favorites',
   initialState,
   reducers: {
+    // Add or delete a product with a favorite property and set local storage
     addProductToFavorites: (state, action) => {
 
       const idProduct = action.payload.id

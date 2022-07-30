@@ -6,6 +6,7 @@ const initialState = {
   categories: [],
 }
 
+// Get all products from api
 export const getAllCategoriesProducts = createAsyncThunk("categories/getAllCategoriesProducts", async () => {
   try {
     const res = await api.get('')
@@ -19,15 +20,18 @@ const categorySlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
+    // Save a specific category
     saveCategory: (state, action) => {
       state.category = action.payload
     }
   },
+  // Handle response from api
   extraReducers(builder) {
     builder
       .addCase(getAllCategoriesProducts.pending, (state, action) => {
         state.status = 'loading'
       })
+      // Get categories, filter and order
       .addCase(getAllCategoriesProducts.fulfilled, (state, action) => {
         state.status = 'success'
         

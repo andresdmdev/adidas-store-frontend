@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// It gets cart products from local storage if They are
 const initialState = {
   cartProducts: JSON.parse(localStorage.getItem('cartProducts')) || [],
 }
@@ -8,6 +9,7 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    // Add a product with quantity to cart products and set in local storage
     addProductToCart: (state, action) => {
 
       const idProduct = action.payload.id
@@ -28,11 +30,13 @@ const cartSlice = createSlice({
 
       localStorage.setItem('cartProducts', JSON.stringify(state.cartProducts))
     },
+    // Reset cart products to cero and set in local storage
     resetCart: (state, action) => {
       state.cartProducts = []
 
       localStorage.setItem('cartProducts', JSON.stringify(state.cartProducts))
     },
+    // Delet a product in cart products and set in local storage
     deleteProductCart: (state, action) => {
 
       const idProduct = action.payload.id
@@ -41,6 +45,7 @@ const cartSlice = createSlice({
 
       localStorage.setItem('cartProducts', JSON.stringify(state.cartProducts))
     },
+    // Delete a quantity of a product in cart products and set in local storage
     deleteQuantityProduct: (state, action) => {
 
       const idProduct = action.payload.id
@@ -58,6 +63,7 @@ const cartSlice = createSlice({
 
       localStorage.setItem('cartProducts', JSON.stringify(state.cartProducts))
     },
+    // Add a product with a specific quantity to cart products and set in local storage
     addSingleProductToCart: (state, action) => {
 
       const { id: idProduct, quantity } = action.payload

@@ -8,6 +8,7 @@ const initialState = {
   singleProduct: {}
 }
 
+// Get all products form api
 export const getAllProducts = createAsyncThunk("products/getAllProducts", async () => {
   try {
     const res = await api.get('')
@@ -17,6 +18,7 @@ export const getAllProducts = createAsyncThunk("products/getAllProducts", async 
   }
 })
 
+// Get products by name form api
 export const searchProductByName = createAsyncThunk("products/searchProductByName", async (name) => {
     try {
       const res = await api.get(`/name/${name}`)
@@ -26,6 +28,7 @@ export const searchProductByName = createAsyncThunk("products/searchProductByNam
     }
 })
 
+// Get products by id form api
 export const searchSingleProductById = createAsyncThunk("products/searchSingleProductById", async (id) => {
   try {
     const res = await api.get(`/${id}`)
