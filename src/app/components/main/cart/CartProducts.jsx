@@ -33,7 +33,7 @@ export default function CartProducts(){
     <>
       <h1 className="products_title">Cart</h1>
       <div
-        className={`products_cart_btn ${products.length > 0 ? 'e' : ''}`}
+        className={`products_cart_btn ${products.length > 0 && 'e'}`}
         onClick={handleClick}
       >
       Make order
