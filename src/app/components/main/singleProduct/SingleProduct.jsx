@@ -19,6 +19,11 @@ export default function SingleProduct(){
 
   useEffect(() => {
     dispatch(searchSingleProductById(id))
+
+    if(window.innerWidth < 800){
+      dispatch(singleProduct(true))
+    }
+    
   }, [dispatch, searchSingleProductById])
   
   const product = useSelector(selectSingleProduct)
@@ -36,12 +41,14 @@ export default function SingleProduct(){
 
     navigate('/cart', {replace:true})
 
-    dispatch(singleProduct())
+    if(window.innerWidth < 800){
+      dispatch(singleProduct(false))
+    }
   }
   
   return (
     <div className="product_container">
-      <img src={product.image1} alt="product" width='300px' className="product_photo" />
+      <img src={product.image1} alt="product" className="product_photo" />
       <div className="product_info">
         <div className="product_block_top">
           <div className="product_name">{product.name}</div>

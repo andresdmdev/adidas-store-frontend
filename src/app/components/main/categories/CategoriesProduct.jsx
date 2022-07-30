@@ -8,7 +8,6 @@ import '../styles/product.css'
 export default function CategoriesProduct(){
 
   const data = useSelector(selectAllProducts)
-
   const category = useSelector(selectCategory)
 
   const products = 

@@ -17,7 +17,6 @@ import SingleProduct from './app/components/main/singleProduct/SingleProduct'
 store.dispatch(getAllProducts())
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
     <Provider store={store}>
       <Router>
         <Routes>
@@ -28,12 +27,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='shoppings' element={<Shoppings />} />
             <Route path='category/*' element={<CategoriesProduct />} />
             <Route path='cart' element={<CartProducts />} />
-            <Route path='product' element={<SingleProduct />}>
-              <Route path=':id' element={<SingleProduct />} />
-            </Route>
+            <Route path='product/:id' element={<SingleProduct />} />
           </Route>
         </Routes>
       </Router>
     </Provider>
-  </React.StrictMode>
 )

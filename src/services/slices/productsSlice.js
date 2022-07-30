@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from 'axios'
-
-const URL = 'https://api-store-adidas.herokuapp.com/api/products'
+import api from "../api/apiInstance";
 
 const initialState = {
   products: [],
@@ -12,7 +10,7 @@ const initialState = {
 
 export const getAllProducts = createAsyncThunk("products/getAllProducts", async () => {
   try {
-    const res = await axios.get(URL)
+    const res = await api.get('')
     return [...res.data]
   } catch (error) {
     return error.message
@@ -21,7 +19,7 @@ export const getAllProducts = createAsyncThunk("products/getAllProducts", async 
 
 export const searchProductByName = createAsyncThunk("products/searchProductByName", async (name) => {
     try {
-      const res = await axios.get(`${URL}/name/${name}`)
+      const res = await api.get(`/name/${name}`)
       return [...res.data]
     } catch (error) {
       return error.message
@@ -30,8 +28,8 @@ export const searchProductByName = createAsyncThunk("products/searchProductByNam
 
 export const searchSingleProductById = createAsyncThunk("products/searchSingleProductById", async (id) => {
   try {
-    const res = await axios.get(`${URL}/${id}`)
-    return res.data
+    const res = await api.get(`/${id}`)
+    return [...res.data]
   } catch (error) {
     return error.message
   }
@@ -59,6 +57,9 @@ const productsSlice = createSlice({
       .addCase(getAllProducts.rejected, (state, action) => {
         state.status = 'rejected'
       })
+      .addCase(searchProductByName.pending, (state, action) => {
+        state.status = 'loading'
+      })
       .addCase(searchProductByName.fulfilled, (state, action) => {
         state.status = 'success'
 
@@ -69,9 +70,11 @@ const productsSlice = createSlice({
           state.products = [...action.payload]
         }
       })
+      .addCase(searchProductByName.rejected, (state, action) => {
+        state.status = 'rejected'
+      })
       .addCase(searchSingleProductById.fulfilled, (state, action) => {
         state.status = 'success'
-
         if(!Array.isArray(action.payload)){
           state.error = 'Not found'
         } else {

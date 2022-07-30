@@ -6,19 +6,18 @@ import close from '../../../../assets/close.svg'
 import { useState } from "react";
 import MsgCart from "./MsgCart";
 import { resetCart } from "../../../../services/slices/cartSlice";
+import currency from '../../../helpers/calcCurrency'
 
 export default function Ticket({ products, showTicket }){
 
   const [showMsg, setShowMsg] = useState(false)
 
+  const dispatch = useDispatch()
+
   const quantity = 
     products
       .map(elem => elem.quantity)
       .reduce((acc, curr) => acc + curr, 0)
-
-  const currency = function(number){
-    return new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD', minimumFractionDigits: 2}).format(number);
-  };
 
   const amount = 
     products
@@ -43,8 +42,6 @@ export default function Ticket({ products, showTicket }){
     date: dateBought,
     amount: amount
   }
-
-  const dispatch = useDispatch()
 
   function handleBuyClick(){
     dispatch(addProductToShoppings(newData))

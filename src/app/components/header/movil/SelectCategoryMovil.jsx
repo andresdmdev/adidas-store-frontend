@@ -1,28 +1,19 @@
 import React from "react";
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { selectCategory, saveCategory, allCategories, getAllCategoriesProducts } from "../../../../services/slices/categorySlice";
+import { saveCategory, allCategories } from "../../../../services/slices/categorySlice";
 import { changeOption, selectMenuMovil, selectOption } from "../../../../services/slices/validationSlice";
 import '../styles/headerStyles.css'
 
 export default function SelectCategoryMovil(){
 
   const dataCategories = useSelector(allCategories)
-
-  const category = useSelector(selectCategory) //marcar div
-
   const menu = useSelector(selectMenuMovil)
-
   const option = useSelector(selectOption)
 
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
-
-  useEffect(() => {
-    dispatch(getAllCategoriesProducts())
-  }, [dispatch])
 
   const categories = 
     dataCategories
@@ -50,10 +41,10 @@ export default function SelectCategoryMovil(){
   }
 
   return(
-    <div className="category_movil">
+    <>
       {
         !menu &&
-        <>
+        <div className="category_movil">
           <p className="category_movil_title">Categories</p>
           <div 
             id="categories"
@@ -66,8 +57,8 @@ export default function SelectCategoryMovil(){
             >All</div>
             {categories}
           </div>
-        </>
+        </div>
       }
-    </div>
+    </>
   )
 }

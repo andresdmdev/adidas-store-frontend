@@ -130,8 +130,6 @@ select {
   display: none;
 }
 
-
-
 @media (min-width: 800px) and (max-width: 1400px){
 
   .section_header_category{
@@ -211,7 +209,6 @@ select {
   .header_movil_logo{
     width: 50px;
     height: 37.29px;
-    cursor: pointer;
   }
 
   .header_movil_menu_logo{
@@ -223,7 +220,6 @@ select {
     background-color: #313030;
     border-radius: 50%;
     border: none;
-    cursor: pointer;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
   }
 
@@ -258,6 +254,7 @@ select {
 
   .section_header_search_form_btn{
     margin: 0;
+    cursor: none;
   }
 
   .section_header_search_input{
@@ -275,7 +272,7 @@ select {
     margin: 12px 0 0 20px;
     padding: 0;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   .section_header_category_block_movil{
@@ -287,19 +284,17 @@ select {
   }
 
   .section_header_category_movil{
-    font-size: 10px;
-    font-weight: 500;
-    line-height: 10px;
-    font-weight: 500;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 0.75rem;
     background-color:#313030;
     color: #f9f9f9;
     margin-right: 14px;
     border-radius: 20px;
-    padding: 10px 20px;
+    padding: 12px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
   }
 
 }
