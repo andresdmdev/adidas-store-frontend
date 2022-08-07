@@ -2,7 +2,7 @@ import React from "react";
 import cartLigth from '../../../../assets/cart-ligth.svg'
 import cartDark from '../../../../assets/cart-dark.svg'
 
-export default function SectionCartMovil({ handleClick, section }){
+const SectionCartMovil = React.memo(function SectionCartMovil({ handleClick, section }){
   return (
     <div 
       className="section_menu_buttons_links cart" 
@@ -24,4 +24,6 @@ export default function SectionCartMovil({ handleClick, section }){
       </h5>
     </div>
   )
-}
+})
+
+export default SectionCartMovil
