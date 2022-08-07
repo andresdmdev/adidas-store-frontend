@@ -14,7 +14,7 @@ import {
 import backLogo from '../../../../assets/back-logo.svg'
 import { useNavigate } from "react-router-dom";
 
-export default function HeaderMovil(){
+const HeaderMovil = React.memo(function HeaderMovil(){
 
   const menu = useSelector(selectMenuMovil)
   const oneProduct = useSelector(selectShowSingleProduct)
@@ -48,7 +48,7 @@ export default function HeaderMovil(){
           alt="profil" 
           className='header_movil_profil' />
       }
-      <img src={logo} alt="logo" className='header_movil_logo' />
+      <img src={logo} alt="logo" className='header_movil_logo' onClick={handleClick} />
       <div className={`header_movil_menu_logo ${!menu && 'ligth'}`} onClick={handleMenu}>
         <img 
           src={menu ? menuLogo : menuLigth} 
@@ -57,4 +57,6 @@ export default function HeaderMovil(){
       </div>
     </div>
   )
-}
+})
+
+export default HeaderMovil
