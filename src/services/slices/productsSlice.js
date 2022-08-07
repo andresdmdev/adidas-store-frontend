@@ -1,11 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../api/apiInstance";
+import newProducts from "./helpers/newProducts";
+import quantityProduct from "./helpers/quantityProduct";
 
 const initialState = {
   products: [],
   status: 'idle',
   error: null,
-  singleProduct: {}
+  singleProduct: {},
+  favoriteProducts: JSON.parse(localStorage.getItem('favorites')) || [],
+  cartProducts: JSON.parse(localStorage.getItem('cart')) || [],
 }
 
 // Get all products form api
@@ -41,7 +45,96 @@ export const searchSingleProductById = createAsyncThunk("products/searchSinglePr
 const productsSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {},
+  reducers: {
+    // Add and delete products from favorites
+    addFavorite: (state, action) => {
+
+      const { id } = action.payload
+
+      state.products = state.products.map(elem => {
+        if(elem.id === id){
+          return { ...elem, favorite: !elem.favorite }
+        } else {
+          return elem
+        }
+      })
+
+      const product = state.products.find(elem => elem.id === id)
+
+      if(product.favorite){
+        state.favoriteProducts.push(product)
+      } else{
+        state.favoriteProducts = state.favoriteProducts.filter(elem => elem.id !== id)
+      }
+      
+
+      localStorage.setItem('favorites', JSON.stringify(state.favoriteProducts))
+    },
+    // Add a product with quantity to cart products and set in local storage
+    addProductToCart: (state, action) => {
+
+      const idProduct = action.payload.id
+
+      state.products = quantityProduct(state.products, idProduct, 1)
+
+      const findProduct = state.cartProducts.find(elem => elem.id === idProduct)
+
+      if(findProduct === undefined){
+        state.cartProducts = [ ...state.cartProducts, { ...action.payload, quantity: 1 } ]
+      } else {
+        state.cartProducts = quantityProduct(state.cartProducts, idProduct, 1)
+      }
+
+      localStorage.setItem('cart', JSON.stringify(state.cartProducts))
+    },
+    // Reset cart products to cero and set in local storage
+    resetCart: (state, action) => {
+      
+      state.products = state.products.map(elem => ({ ...elem, quantity: 0 }))
+      
+      state.cartProducts = []
+
+      localStorage.setItem('cart', JSON.stringify(state.cartProducts))
+    },
+    // Delet a product in cart products and set in local storage
+    deleteProductCart: (state, action) => {
+
+      const idProduct = action.payload.id
+
+      state.products = quantityProduct(state.products, idProduct, 0)
+
+      state.cartProducts = state.cartProducts.filter(product => product.id !== idProduct)
+
+      localStorage.setItem('cart', JSON.stringify(state.cartProducts))
+    },
+    // Delete a quantity of a product in cart products and set in local storage
+    deleteQuantityProduct: (state, action) => {
+
+      const idProduct = action.payload.id
+
+      if(state.cartProducts.length > 0){
+
+        state.cartProducts = quantityProduct(state.cartProducts, idProduct, -1)
+      }
+
+      localStorage.setItem('cart', JSON.stringify(state.cartProducts))
+    },
+    // Add a product with a specific quantity to cart products and set in local storage
+    addSingleProductToCart: (state, action) => {
+
+      const { id: idProduct, quantity } = action.payload
+
+      const findProduct = state.cartProducts.find(elem => elem.id === idProduct)
+
+      if(findProduct === undefined){
+        state.cartProducts = [ ...state.cartProducts, { ...action.payload, quantity: quantity }]
+      } else {
+        state.cartProducts = quantityProduct(state.cartProducts, idProduct, quantity)
+      }
+
+      localStorage.setItem('cart', JSON.stringify(state.cartProducts))
+    }
+  },
   extraReducers(builder) {
     builder
       .addCase(getAllProducts.pending, (state, action) => {
@@ -54,7 +147,7 @@ const productsSlice = createSlice({
           state.error = 'Network connection failed'
         } else {
           state.error = null
-          state.products = [...action.payload]
+          state.products = newProducts(action.payload, state.favoriteProducts, state.cartProducts)
         }
       })
       .addCase(getAllProducts.rejected, (state, action) => {
@@ -70,7 +163,7 @@ const productsSlice = createSlice({
           state.error = 'Not found'
         } else {
           state.error = null
-          state.products = [...action.payload]
+          state.products = newProducts(action.payload, state.favoriteProducts, state.cartProducts)
         }
       })
       .addCase(searchProductByName.rejected, (state, action) => {
@@ -87,6 +180,19 @@ const productsSlice = createSlice({
       })
   }
 })
+
+export const { 
+  addFavorite, 
+  addProductToCart,
+  resetCart,
+  deleteProductCart,
+  deleteQuantityProduct,
+  addSingleProductToCart 
+} = productsSlice.actions
+
+export const selectFavoritesProducts = (state) => state.products.favoriteProducts;
+
+export const selectCartProducts = (state) => state.products.cartProducts;
 
 export const selectSingleProduct = (state) => state.products.singleProduct;
 
