@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeOption } from "../../../services/slices/validationSlice";
 import cartLigth from '../../../assets/cart-ligth.svg';
 import cartDark from '../../../assets/cart-dark.svg';
-import { selectAllCartproducts } from "../../../services/slices/cartSlice";
 import { useNavigate } from "react-router-dom";
+import { selectCartProducts } from "../../../services/slices/productsSlice";
 
 export default function Cart(){
 
-  const verifyCart = useSelector(selectAllCartproducts)
+  const verifyCart = useSelector(selectCartProducts)
 
   const dispatch = useDispatch()
 

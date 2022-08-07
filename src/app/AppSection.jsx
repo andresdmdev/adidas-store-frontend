@@ -6,7 +6,7 @@ import Header from './components/header/Header'
 import MainSections from './components/main/MainSections'
 import { selectMenuMovil } from "../services/slices/validationSlice";
 
-export default function AppSection(){
+const AppSection = React.memo(function AppSection(){
 
   const error = useSelector(showError)
   const menu = useSelector(selectMenuMovil)
@@ -28,4 +28,6 @@ export default function AppSection(){
       }
     </div>
   )
-}
+})
+
+export default AppSection

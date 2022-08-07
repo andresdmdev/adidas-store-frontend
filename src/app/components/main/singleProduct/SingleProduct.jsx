@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { addSingleProductToCart } from "../../../../services/slices/cartSlice";
-import { searchSingleProductById, selectSingleProduct } from "../../../../services/slices/productsSlice";
+import { addSingleProductToCart, searchSingleProductById, selectSingleProduct } from "../../../../services/slices/productsSlice";
 import { singleProduct } from "../../../../services/slices/validationSlice";
 import currency from "../../../helpers/calcCurrency";
 import './styles/singleProduct.css'

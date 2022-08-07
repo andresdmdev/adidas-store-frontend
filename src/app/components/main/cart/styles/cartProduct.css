@@ -147,7 +147,7 @@
   color: #313030;
   font-size: 1.2rem;
   font-weight: 600;
-  margin: 0 160px 30px auto;
+  margin: 0 30px 30px auto;
   transition: all 1ms ease;
   cursor: not-allowed;
 }
@@ -359,14 +359,11 @@
 }
 
 @media (min-width: 800px) and (max-width: 1400px) {
-  .products_title {
-    margin-left: 1rem;
-  }
   .products_cart_btn {
     width: 175px;
     height: 32.725px;
     font-size: 1.1rem;
-    margin: 0 120px 20px auto;
+    margin: 0 30px 20px auto;
   }
   .product_cart_card {
     width: 875px;

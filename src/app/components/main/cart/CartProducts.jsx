@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { selectAllCartproducts } from "../../../../services/slices/cartSlice";
+import { selectCartProducts } from "../../../../services/slices/productsSlice";
 import ProductCart from "./ProductCart";
 import './styles/cartProduct.css'
 import Ticket from "./Ticket";
@@ -10,7 +10,7 @@ export default function CartProducts(){
 
   const [showTicket, setShowTicket] = useState(false)
 
-  const data = useSelector(selectAllCartproducts)
+  const data = useSelector(selectCartProducts)
 
   const products = data.map(product => (
     <ProductCart 
