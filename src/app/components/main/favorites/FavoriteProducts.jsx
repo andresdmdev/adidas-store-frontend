@@ -1,12 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectAllFavorites } from "../../../../services/slices/favoriteSlice";
+import { selectFavoritesProducts } from "../../../../services/slices/productsSlice";
 import Product from "../Product";
 import '../styles/product.css'
 
 export default function FavoriteProducts(){
 
-  const data = useSelector(selectAllFavorites)
+  const data = useSelector(selectFavoritesProducts)
 
   const products = data.map(product => (
       

@@ -1,14 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { 
-  addProductToCart, 
-  deleteProductCart, 
-  selectAllCartproducts 
-} from "../../../services/slices/cartSlice";
-import { 
-  addProductToFavorites, 
-  selectAllFavorites 
-} from "../../../services/slices/favoriteSlice";
+import { useDispatch } from "react-redux";
 import './styles/product.css'
 import cart from '../../../assets/cart-ligth.svg'
 import cartDark from '../../../assets/cart.svg'
@@ -17,22 +8,16 @@ import loved from '../../../assets/loved.svg'
 import currency from "../../helpers/calcCurrency";
 import { useNavigate } from "react-router-dom";
 import { changeOption } from "../../../services/slices/validationSlice";
+import { addFavorite, addProductToCart, deleteProductCart } from "../../../services/slices/productsSlice";
 
-export default function Product({ product }){
+const Product = React.memo(function Product({ product }){
 
   const dispatch = useDispatch()
 
-  const favProducts = useSelector(selectAllFavorites)
-  const cartProducts = useSelector(selectAllCartproducts)
-
   const navigate = useNavigate()
 
-  const favorite = favProducts.find(elem => elem.id === product.id) || false
-
-  const cartProduct = cartProducts.find(elem => elem.id === product.id) || 0
-
   function handleClickCart(){
-    if(cartProduct.quantity > 0){
+    if(product.quantity > 0){
       dispatch(deleteProductCart(product))
     } else {
       dispatch(addProductToCart(product))
@@ -40,7 +25,7 @@ export default function Product({ product }){
   }
 
   function handleClickFav(){
-    dispatch(addProductToFavorites(product))
+    dispatch(addFavorite(product))
   }
 
   const newPrice = product.price * (1 - product.discount/100)
@@ -51,7 +36,7 @@ export default function Product({ product }){
   }
 
   return (
-    <div className="product_card">
+    <article className="product_card">
       <div className="product_card_img"  onClick={handleSingleProduct}>
         <img src={product.image1} alt="photo" className="product_card_img_photo" />
         <div>
@@ -74,13 +59,13 @@ export default function Product({ product }){
           </div>
           <div className="product_card_info_extra_icons" >
             <img 
-              src={!favorite ? heart : loved} 
+              src={!product.favorite ? heart : loved} 
               alt="favorite" 
               className="product_card_info_extra_icons_heart" 
               onClick={handleClickFav}
             />
             <img 
-              src={cartProduct.quantity > 0 ? cartDark : cart} 
+              src={product.quantity > 0 ? cartDark : cart} 
               alt="cart" 
               className="product_card_info_extra_icons_shop"
               onClick={handleClickCart}
@@ -88,6 +73,8 @@ export default function Product({ product }){
           </div>
         </div>
       </div>
-    </div>
+    </article>
   )
-}
+})
+
+export default Product

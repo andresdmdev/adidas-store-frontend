@@ -8,19 +8,19 @@ export default function AllProducts(){
 
   const data = useSelector(selectAllProducts)
 
-  const products = data.map(product => (
-    <Product 
-      product={product} 
-      key={product.id}
+  const products = data.slice().map(product => (
+    <Product
+      key={product.id} 
+      product={product}
     />
   ))
 
   return (
     <>
       <h1 className="products_title">All products</h1>
-      <div className="products">
+      <section className="products">
         {products}
-      </div>
+      </section>
     </>
   )
 }
