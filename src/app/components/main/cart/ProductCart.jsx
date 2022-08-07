@@ -1,11 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addProductToCart, deleteProductCart, deleteQuantityProduct } from "../../../../services/slices/cartSlice";
 import './styles/cartProduct.css'
 import trash from '../../../../assets/trash.svg'
 import currency from "../../../helpers/calcCurrency";
+import { addProductToCart, deleteProductCart, deleteQuantityProduct } from "../../../../services/slices/productsSlice";
 
-export default function ProductCart({ product }){
+const ProductCart = React.memo(function ProductCart({ product }){
 
   const dispatch = useDispatch()
 
@@ -46,7 +46,6 @@ export default function ProductCart({ product }){
             {product.quantity}
             <div className="product_cart_card_info_section_a_quantity_btn" onClick={handleClickPlus}>+</div>
           </div>
-          {/* <p className="product_cart_card_info_size">Size: {product.size}</p> */}
           <div className="product_cart_card_info_section_a_color">
             Color: {product.color}
           </div>
@@ -69,4 +68,6 @@ export default function ProductCart({ product }){
       </div>
     </div>
   )
-}
+})
+
+export default ProductCart

@@ -5,8 +5,9 @@ import './styles/cartProduct.css'
 import close from '../../../../assets/close.svg'
 import { useState } from "react";
 import MsgCart from "./MsgCart";
-import { resetCart } from "../../../../services/slices/cartSlice";
-import currency from '../../../helpers/calcCurrency'
+import { resetCart } from "../../../../services/slices/productsSlice";
+import dataTicket from "../../../helpers/dataTicket";
+import ListProducts from "./ListProducts";
 
 export default function Ticket({ products, showTicket }){
 
@@ -14,34 +15,7 @@ export default function Ticket({ products, showTicket }){
 
   const dispatch = useDispatch()
 
-  const quantity = 
-    products
-      .map(elem => elem.quantity)
-      .reduce((acc, curr) => acc + curr, 0)
-
-  const amount = 
-    products
-      .map(elem => {
-        return elem.discount > 0 ? 
-          (elem.price * (1 - elem.discount / 100)) * elem.quantity : 
-          elem.price * elem.quantity
-      })
-      .reduce((acc, curr) => acc + curr, 0)
-      .toFixed(2)
-
-  const date = new Date()
-  const dateBought = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`
-
-  const name = products.map(elem => (
-    { name: elem.name, quantity: elem.quantity, price: elem.price, discount: elem.discount }
-  ))
-
-  const newData = {
-    productNames: name,
-    quantity: quantity,
-    date: dateBought,
-    amount: amount
-  }
+  const newData = dataTicket(products)
 
   function handleBuyClick(){
     dispatch(addProductToShoppings(newData))
@@ -52,24 +26,9 @@ export default function Ticket({ products, showTicket }){
   }
 
   const productName = products.map(elem => 
-    <div 
-      key={elem.id}
-      className='ticket_info_products_items_p'
-    >
-      <div className='ticket_info_products_items_p-name'>
-        {elem.name}
-      </div>
-      <div className='ticket_info_products_items_p-quantity'>
-        {elem.quantity}
-      </div>
-      <div className='ticket_info_products_items_p-price'>
-        {currency((elem.price * elem.quantity * (1 - elem.discount/100)).toFixed(2))}
-      </div>
-      <hr />
-    </div>
+    <ListProducts key={elem.id} product={elem} />
   )
   
-
   return (
     <div className="ticket">
       <div
@@ -82,9 +41,9 @@ export default function Ticket({ products, showTicket }){
       <div className="ticket_info">
         <div className="ticket_info_block">
           <div className="ticket_info_quantity">
-            <strong>Quantity: </strong> {quantity} products
+            <strong>Quantity: </strong> {newData.quantity} products
           </div>
-          <h5 className="ticket_info_date"><strong>Date: </strong> {dateBought}</h5>
+          <h5 className="ticket_info_date"><strong>Date: </strong> {newData.date}</h5>
         </div>
         <div className="ticket_info_products">
           <h2 className="ticket_info_products_title">
@@ -101,7 +60,7 @@ export default function Ticket({ products, showTicket }){
             </div>
           </div>
         </div>
-        <h4 className="ticket_info_amount"><strong>Total Amount:</strong> ${amount}</h4>
+        <h4 className="ticket_info_amount"><strong>Total Amount:</strong> ${newData.amount}</h4>
         <div className="ticket_info_block_btn">
           <div 
             onClick={handleBuyClick}
