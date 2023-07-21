@@ -13,7 +13,7 @@ This app is a store with adidas products. It shows products, ordered by offers, 
 
 <p align="center" width="100%">
 
-  [![figma](./src/assets/readme/figma_btn.svg)](https://www.figma.com/file/7FXw8FVdQSRDUDcv4XqmRa/Frontend-design-Adidas-Project?node-id=213%3A2/)   [![web](./src/assets/readme/web_btn.svg)](https://andres-webdev.github.io/adidas-store-frontend/)
+  [![web](./src/assets/readme/web_btn.svg)](https://andres-webdev.github.io/adidas-store-frontend/)
 </p>
 
 ## Stack used for this project
@@ -23,31 +23,26 @@ This app is a store with adidas products. It shows products, ordered by offers, 
 | <img src="./src/assets/readme/javascript.png" alt="JavaScript" width="70px" heigth="70px" />  | <img src="./src/assets/readme/react.png" alt="React" width="70px" heigth="70px" />  |
 | <img src="./src/assets/readme/html.png" alt="Html5" width="70px" heigth="70px" />  | <img src="./src/assets/readme/redux.png" alt="Redux" width="70px" heigth="70px" />  |
 | <img src="./src/assets/readme/css.png" alt="Css" width="70px" heigth="70px" />  | <img src="./src/assets/readme/react-router.png" alt="React-Router" width="70px" heigth="70px" />  |
-| <img src="./src/assets/readme/figma.png" alt="Figma" width="70px" heigth="70px" />  | <img src="./src/assets/readme/sass.png" alt="Sass" width="70px" heigth="70px" />  |
+| <img src="./src/assets/readme/sass.png" alt="Sass" width="70px" heigth="70px" />  |
 
 
 ## Screenshoots of the app
 
-### Web
-
-<p align="center" width="100%">
-  <img src="./src/assets/readme/home-web.png" alt="home-web" />
-  
-  <img src="./src/assets/readme/product-web.png" alt="product-web" />
-  
-  <img src="./src/assets/readme/cart-web.png" alt="cart-web" />
-  
-  <img src="./src/assets/readme/cart-ticket-web.png" alt="cart-ticket-web" />
-  
-  <img src="./src/assets/readme/shoppings-web.png" alt="shopping-web" />
-</p>
-
 ### Movil
 
 <p align="center" width="100%">
-  <img src="./src/assets/readme/home-movil.png" alt="home-movil" />
-  <img src="./src/assets/readme/menu-movil.png" alt="menu-movil" />
-  <img src="./src/assets/readme/product-movil.png" alt="product-movil" />
-  <img src="./src/assets/readme/cart-movil.png" alt="cart-movil" />
-  <img src="./src/assets/readme/shoppings-movil.png" alt="shopping-movil" />
+  <img src="https://res.cloudinary.com/dp3chx1yj/image/upload/v1689912296/Ecommerce/movil-home_vmtd6l.avif" alt="home-movil" />
+  <img src="https://res.cloudinary.com/dp3chx1yj/image/upload/v1689912288/Ecommerce/movil-product_k5qou7.avif" alt="product-movil" />
+  <img src="https://res.cloudinary.com/dp3chx1yj/image/upload/v1689912277/Ecommerce/movil-cart_lixesn.avif" alt="cart-movil" />
+  <img src="https://res.cloudinary.com/dp3chx1yj/image/upload/v1689912269/Ecommerce/movil-fav_k8ps4x.avif" alt="favrite-movil" />
 </p>
+
+### Web
+
+<p align="center" width="100%">
+  <img src="https://res.cloudinary.com/dp3chx1yj/image/upload/v1689912406/Ecommerce/desktop-home_p38tn1.avif" alt="home-web" />
+  <img src="https://res.cloudinary.com/dp3chx1yj/image/upload/v1689912401/Ecommerce/desktop-product_cx2i82.avif" alt="product-web" />
+  <img src="https://res.cloudinary.com/dp3chx1yj/image/upload/v1689912397/Ecommerce/desktop-cart_oemgpg.avif" alt="cart-web" />
+  <img src="https://res.cloudinary.com/dp3chx1yj/image/upload/v1689912395/Ecommerce/desktop-profil_jnya0j.avif" alt="profil-web" />
+</p>
+
