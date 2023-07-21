@@ -1,37 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  option: 'home',
-  menuMovil: false,
-  singleProduct: false
+  section: '',
 }
 
 const validationSlice = createSlice({
   name: 'validation',
   initialState,
   reducers: {
-    changeOption: (state, action) => {
-      state.option = action.payload
-    },
-    menuMovil: (state, action) => {
-      state.menuMovil = !state.menuMovil
-    },
-    singleProduct: (state, action) => {
-      state.singleProduct = action.payload
+    section: (state, action) => {
+      state.section = action.payload
     }
   }
 })
 
 export const { 
-  changeOption, 
-  menuMovil, 
-  singleProduct 
+  section, 
 } = validationSlice.actions
 
-export const selectOption = (state) => state.validation.option
-
-export const selectMenuMovil = (state) => state.validation.menuMovil
-
-export const selectShowSingleProduct = (state) => state.validation.singleProduct
+export const selectSection = (state) => state.validation.section
 
 export default validationSlice.reducer
