@@ -1,9 +1,4 @@
 export default function dataTicket(products){
-  
-  const quantity = 
-    products
-      .map(elem => elem.quantity)
-      .reduce((acc, curr) => acc + curr, 0)
 
   const amount = 
     products
@@ -16,16 +11,13 @@ export default function dataTicket(products){
       .toFixed(2)
 
   const date = new Date()
-  const dateBought = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`
 
-  const name = products.map(elem => (
-    { name: elem.name, quantity: elem.quantity, price: elem.price, discount: elem.discount }
-  ))
-  
+  const randomNumber = Math.floor(Math.random() * 100)
+
+  const dateBought = `${date.getMonth()}${date.getDate()}${date.getFullYear()}${randomNumber}`
+
   return {
-    productNames: name,
-    quantity: quantity,
-    date: dateBought,
+    ticket: dateBought,
     amount: amount
   }
 }

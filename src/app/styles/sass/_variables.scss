@@ -1,0 +1,18 @@
+// Light colors
+
+$colors: (
+  'base': #69707D,
+  'alternative': #E4E9F2,
+  'primary': #FF7E1B,
+  'secondary': #1D2026,
+  'ternary': #FFEEE2,
+  'white-soft': #F6F8FD,
+  'white-op': #FCFCFC,
+  'white': #fff,
+  'black': #000,
+  'other': #B6BCC8,
+);
+
+@function color($key: 'primary'){
+  @return map-get($colors, $key);
+}

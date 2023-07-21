@@ -1,31 +1,29 @@
 import React from "react";
-import './App.css'
 import { useSelector } from "react-redux";
 import { showError } from "../services/slices/productsSlice";
-import Header from './components/header/Header'
 import MainSections from './components/main/MainSections'
-import { selectMenuMovil } from "../services/slices/validationSlice";
+import sadEmogi from '../assets/wrong-emogi.svg'
+import { useLocation } from "react-router-dom";
 
 const AppSection = React.memo(function AppSection(){
 
   const error = useSelector(showError)
-  const menu = useSelector(selectMenuMovil)
+
+  const { pathname } = useLocation()
 
   return (
-    <div className='App_section'>
-      <Header />
-      {
-        !menu &&
-        <div className="section_main">
-          { error ? 
-            <>
-              <h2>{error}</h2>
-              <p>Please, search again</p>
-            </> : 
-            <MainSections />
-          }
-        </div>
-      }
+    <div className='app-section'>
+      <div className="section-main">
+        { 
+          error && pathname.length === 1 ? 
+          <div className="error-message">
+            <img src={sadEmogi} alt="sad-emogi" width={65} height={65} />
+            <p>Ups! Something was wrong.</p>
+            <span>Refresh the page, please</span>
+          </div> : 
+          <MainSections />
+        }
+      </div>
     </div>
   )
 })

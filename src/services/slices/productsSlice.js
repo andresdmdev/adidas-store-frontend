@@ -2,9 +2,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../api/apiInstance";
 import newProducts from "./helpers/newProducts";
 import quantityProduct from "./helpers/quantityProduct";
+import { data, sampleProduct } from "./helpers/data-test";
 
 const initialState = {
-  products: [],
+  products: data,
   status: 'idle',
   error: null,
   singleProduct: {},
@@ -66,7 +67,6 @@ const productsSlice = createSlice({
       } else{
         state.favoriteProducts = state.favoriteProducts.filter(elem => elem.id !== id)
       }
-      
 
       localStorage.setItem('favorites', JSON.stringify(state.favoriteProducts))
     },
@@ -99,7 +99,7 @@ const productsSlice = createSlice({
     // Delet a product in cart products and set in local storage
     deleteProductCart: (state, action) => {
 
-      const idProduct = action.payload.id
+      const idProduct = action.payload
 
       state.products = quantityProduct(state.products, idProduct, 0)
 

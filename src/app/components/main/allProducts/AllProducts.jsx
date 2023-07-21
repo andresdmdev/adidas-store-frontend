@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectAllProducts } from '../../../../services/slices/productsSlice'
-import Product from "../Product";
-import '../styles/product.css'
+import Product from "../product/Product";
+import '../product/styles/products.css'
 
 export default function AllProducts(){
 
@@ -17,7 +17,6 @@ export default function AllProducts(){
 
   return (
     <>
-      <h1 className="products_title">All products</h1>
       <section className="products">
         {products}
       </section>

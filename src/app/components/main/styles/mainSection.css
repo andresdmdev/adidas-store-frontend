@@ -3,12 +3,12 @@
   height: 75px;
   border-radius: 50%;
   display: inline-block;
-  border-top: 5px solid #313030;
+  border-top: 5px solid #FF7E1B;
   border-right: 5px solid transparent;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
   display: flex;
-  margin: 10rem auto;
+  margin: 70% auto;
 }
 
 @keyframes rotation {
@@ -17,6 +17,11 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@media (min-width: 769px) {
+  .loader {
+    margin: 20% auto;
   }
 }
 
