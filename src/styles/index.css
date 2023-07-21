@@ -1,0 +1,56 @@
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+#root {
+  margin: 0;
+  padding: 20px 12px;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 769px) and (max-width: 1439px) {
+  #root {
+    padding: 23px 23px;
+  }
+}
+@media (min-width: 1440px) {
+  #root {
+    padding: 23px 165px;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,83 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.app-section {
+  display: flex;
+  width: 100%;
+}
+
+.section-main {
+  width: 100%;
+}
+.section-main .error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 12rem;
+}
+.section-main .error-message img {
+  width: 65px;
+  height: 65px;
+}
+.section-main .error-message p {
+  color: #69707D;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.2rem;
+  margin: 1.6rem 0 0.65rem 0;
+}
+.section-main .error-message span {
+  color: #1D2026;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 0.95rem;
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .section-main {
+    margin-left: 0;
+  }
+  .section-main .error-message img {
+    width: 80px;
+    height: 80px;
+  }
+  .section-main .error-message p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.2rem;
+    margin: 1.6rem 0 1rem 0;
+  }
+  .section-main .error-message span {
+    font-size: 0.9rem;
+    font-weight: bold;
+    line-height: 1.2rem;
+  }
+}
+@media (min-width: 1440px) {
+  .section-main {
+    margin-left: 25px;
+  }
+  .section-main .error-message img {
+    width: 80px;
+    height: 80px;
+  }
+  .section-main .error-message p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.2rem;
+    margin: 1.6rem 0 1rem 0;
+  }
+  .section-main .error-message span {
+    font-size: 0.9rem;
+    font-weight: bold;
+    line-height: 1.2rem;
+  }
+}
+
+/*# sourceMappingURL=app.css.map */
