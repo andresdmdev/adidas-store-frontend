@@ -42,8 +42,8 @@ export default function MenuHeader(){
             }
             <ul className={`header-menu-list${showMenu ? '--movil': ''}`}>
               <li><a href="#" onClick={(e) => handleNavigationPage(e, 'collection')} className={`${pathname.includes('collection') ? 'active' : ''}`}>Collections</a></li>
-              <li><a href="#" onClick={(e) => handleNavigationPage(e, 'men')} className={`${pathname.includes("/men") ? 'active' : ''}`}>Men</a></li>
-              <li><a href="#" onClick={(e) => handleNavigationPage(e, 'women')} className={`${pathname.includes("women") ? 'active' : ''}`}>Women</a></li>
+              <li><a href="#" onClick={(e) => handleNavigationPage(e, 'men')} className={`${pathname.includes('/men') ? 'active' : ''}`}>Men</a></li>
+              <li><a href="#" onClick={(e) => handleNavigationPage(e, 'women')} className={`${pathname.includes('women') ? 'active' : ''}`}>Women</a></li>
               <li><a href="#" onClick={(e) => handleNavigationPage(e, 'offers')} className={`${pathname.includes('offers') ? 'active' : ''}`}>Offers</a></li>
               <li><a href="#" onClick={(e) => handleNavigationPage(e, 'contact')} className={`${pathname.includes('contact') ? 'active' : ''}`}>Contact</a></li>
             </ul>

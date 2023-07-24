@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom"
 import { section } from "../../../../services/slices/validationSlice"
 import { useState } from "react"
 import starEmogi from '../../../../assets/star-emogi.svg'
-import { addProductToShoppings } from "../../../../services/slices/shoppinsSlice"
+import { addProductToShoppings } from "../../../../services/slices/shoppingSlice"
 import dataTicket from "../../../helpers/dataTicket"
 
 export default function CartProducts({ handleCloseBtn }) {
