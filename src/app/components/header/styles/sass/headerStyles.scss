@@ -7,7 +7,7 @@ header {
   align-items: center;
   position: relative;
   padding-bottom: 24px;
-  border-bottom: solid 1px color('alternative');
+  border-bottom: solid 1px get-color('alternative');
   width: 100%;
   height: auto;
 }
@@ -20,17 +20,17 @@ header {
   height: 100%;
   z-index: 2;
   display: flex;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: get-color("black");
 
   .header-menu-section-container--movil {
     width: 60%;
     height: 100%;
     padding: 1.5625rem;
-    background-color: #fff;
+    background-color: get-color("white");
 
     .menu-btn--close .img {
       font-size: 1.25rem;
-      color: #69707D;
+      color: get-color("base");
     }
 
     .header-menu-list--movil {
@@ -49,11 +49,11 @@ header {
         line-height: 1.625rem;
         
         a {
-          color: #1D2026;
+          color: get-color("secondary");
           text-transform: capitalize;
 
           &.active {
-            color: #FF7E1B;
+            color: get-color("primary");
             font-weight: bold;
           }
         }
@@ -106,11 +106,11 @@ header {
     font-family: inherit;
     color: color('base');
     border-radius: 0.9375rem;
-    border: 0.8px solid color('alternative');
-    background-color: color('white-op');
+    border: 0.8px solid get-color('alternative');
+    background-color: get-color('white-op');
   
     &:focus {
-      border: solid 1px color('base');
+      border: solid 1px get-color('base');
     }
   }
   
@@ -146,9 +146,9 @@ header {
       right: -6px;
       width: 19px;
       height: 13px;
-      background-color: #FF7E1B;
+      background-color: get-color("primary");
       border-radius: 6.5rem;
-      color: #FFF;
+      color: get-color("white");
       font-size: 0.625rem;
       font-style: normal;
       font-weight: 700;
@@ -178,18 +178,18 @@ header {
   
       li{
         cursor: pointer;
-        color: #69707D;
+        color: get-color("base");
         font-size: 0.9rem; // Changed
         font-style: normal;
         font-weight: 400; 
         line-height: 1.5rem;  // Changed
 
         a {
-          color: #1D2026;
+          color: get-color("secondary");
           text-transform: capitalize;
 
           &.active {
-            color: #FF7E1B;
+            color: get-color("primary");
             font-weight: bold;
           }
         }
@@ -260,18 +260,18 @@ header {
 
     li{
       cursor: pointer;
-      color: #69707D;
+      color: get-color("base");
       font-size: 0.9375rem;
       font-style: normal;
       font-weight: 400;
       line-height: 1.625rem; 
       a {
-        color: #1D2026;
+        color: get-color("secondary");
         text-transform: capitalize;
 
         &.active {
           font-weight: bold;
-          color: #FF7E1B;
+          color: get-color("primary");
         }
       }
     }

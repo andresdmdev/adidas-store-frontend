@@ -12,6 +12,7 @@ import Collection from './app/components/main/collection/Collection'
 import MenSection from './app/components/main/categories/MenSection'
 import WomenSection from './app/components/main/categories/WomenSection'
 import ContactSection from './app/components/main/contact/ContactSection'
+import PageNotFound from './app/components/main/PageNotFound'
 
 // Get all products form Api when the app starts
 
@@ -26,8 +27,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Route path='women' element={<WomenSection />} />
             <Route path='offers' element={<Offers />} />
             <Route path='contact' element={<ContactSection />} />
-            <Route path='*' element={<Offers />} />
             <Route path='product/:id' element={<SingleProduct />} />
+            <Route path='*' element={<PageNotFound />} />
           </Route>
         </Routes>
       </Router>

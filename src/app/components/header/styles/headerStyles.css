@@ -18,7 +18,7 @@ header {
   height: 100%;
   z-index: 2;
   display: flex;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #000;
 }
 .header-menu-section--movil .header-menu-section-container--movil {
   width: 60%;
@@ -94,7 +94,7 @@ header {
   text-indent: 20px;
   font-size: 0.75rem;
   font-family: inherit;
-  color: #69707D;
+  color: color("base");
   border-radius: 0.9375rem;
   border: 0.8px solid #E4E9F2;
   background-color: #FCFCFC;
@@ -111,7 +111,7 @@ header {
 }
 .header-search .search-form-input-button .input-button-icon {
   font-size: 0.85rem;
-  color: #69707D;
+  color: color("base");
 }
 
 .header-search.disable {
@@ -134,7 +134,7 @@ header {
   height: 13px;
   background-color: #FF7E1B;
   border-radius: 6.5rem;
-  color: #FFF;
+  color: #fff;
   font-size: 0.625rem;
   font-style: normal;
   font-weight: 700;
