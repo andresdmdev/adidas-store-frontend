@@ -1,0 +1,45 @@
+
+section {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem 0 1.5rem 0;
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding-inline-start: 0;
+
+    li button {
+      width: 30px;
+      height: 30px;
+      font-size: 0.75rem;
+      background-color: #F5A160;
+      border-radius: 50%;
+      text-align: center;
+      vertical-align: middle;
+      color: #fff;
+      opacity: 0.7;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &.active {
+        background-color: #F17A1F;
+        opacity: 1;
+        width: 40px;
+        height: 40px;
+        margin-top: -15px;
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  section {
+    margin: 4.5rem 0 1.5rem 0;
+  }
+}
