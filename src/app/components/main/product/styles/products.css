@@ -21,15 +21,26 @@
   margin-bottom: 4px;
 }
 .product-card .product-card-img .img-photo {
-  height: 100%;
   width: 100%;
   border-radius: 15px;
+  min-width: -webkit-fill-available;
+  min-height: 171px;
+  border: solid 1px #fff;
+  object-fit: cover;
 }
-.product-card .product-card-img img {
-  border: solid 1px transparent;
-}
-.product-card .product-card-img img:hover {
+.product-card .product-card-img .img-photo:hover {
   border: solid 1px #FF7E1B;
+}
+.product-card .product-card-img .img-photo.skelleton {
+  animation: skelletonAnimation 1s linear infinite alternate;
+}
+@keyframes skelletonAnimation {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 80%);
+  }
 }
 .product-card .product-card-img .product-fav-icon {
   position: absolute;
@@ -155,7 +166,7 @@
 
 @media (min-width: 769px) and (max-width: 1439px) {
   .products {
-    grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(232px, auto));
     margin-top: 60px;
     gap: 12px;
     margin-left: 0;
@@ -168,10 +179,11 @@
     border-radius: 18px;
     margin-bottom: 8px;
   }
-  .product-card .product-card-img img {
-    border: solid 1px transparent;
+  .product-card .product-card-img .img-photo {
+    min-height: 234px;
+    border: solid 1px #fff;
   }
-  .product-card .product-card-img img:hover {
+  .product-card .product-card-img .img-photo:hover {
     border: solid 1px #FF7E1B;
   }
   .product-card .product-card-img .product-fav-icon {
@@ -217,7 +229,7 @@
 }
 @media (min-width: 1440px) {
   .products {
-    grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(232px, auto));
     margin-top: 75px;
   }
   .product-card {
@@ -228,10 +240,11 @@
     border-radius: 18px;
     margin-bottom: 8px;
   }
-  .product-card .product-card-img img {
-    border: solid 1px transparent;
+  .product-card .product-card-img .img-photo {
+    min-height: 234px;
+    border: solid 1px #fff;
   }
-  .product-card .product-card-img img:hover {
+  .product-card .product-card-img .img-photo:hover {
     border: solid 1px #FF7E1B;
   }
   .product-card .product-card-img .product-fav-icon {

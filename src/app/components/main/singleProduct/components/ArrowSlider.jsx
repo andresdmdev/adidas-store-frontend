@@ -5,7 +5,7 @@ export default function ArrowSlider({ direction = 'left', handleDirection, size 
   return (
     <>
       <button className={`product-photo-arrow--${direction}`} name={`arrow${direction}`} aria-label={`arrow${direction}`} onClick={handleDirection}>
-        <img src={direction === 'left' ? arrowBtn : arrowRightBtn} alt="arrow-left-btn" width={size} height={size} />
+        <img src={direction === 'left' ? arrowBtn : arrowRightBtn} alt={`arrow-${direction}-btn`} width={size} height={size} />
       </button>
     </>
   )

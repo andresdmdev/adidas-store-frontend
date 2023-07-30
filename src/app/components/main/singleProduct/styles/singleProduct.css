@@ -30,7 +30,7 @@
   transition: ease-in-out transform 500ms;
 }
 .product-container .product-photo-section .product-carrousel-container .photo-carrousel .product-photo {
-  width: 100vw;
+  width: 100%;
   height: auto;
   min-width: 320px;
   min-height: 320px;
@@ -140,7 +140,7 @@
 .product-container .product-info-section .product-quantity button:hover {
   border-radius: 0.625rem;
   transition: ease-in-out 300ms;
-  background-color: #edf1f8;
+  background-color: #eff1f4;
 }
 .product-container .product-info-section .product-quantity button img {
   width: 0.75rem;
@@ -178,7 +178,7 @@
   height: 1rem;
 }
 .product-container .product-info-section .product-cart span {
-  color: #FFF;
+  color: #fff;
   font-size: 1rem;
   font-style: normal;
   font-weight: 700;

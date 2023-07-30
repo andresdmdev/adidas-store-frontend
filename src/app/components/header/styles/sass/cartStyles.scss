@@ -1,9 +1,10 @@
+@import "../../../../styles/sass/variables";
 
 .cart-container{
   position: absolute;
   top: 60px;
   width: calc(100% - 48px);
-  background-color: #fff;
+  background-color: get-color('white');
   border-radius: 15px;
   z-index: 2;
   padding: 24px;
@@ -19,7 +20,7 @@
     margin-bottom: 1.6rem;
 
     h2 {
-      color: #1D2026;
+      color: get-color("secondary");
       font-size: 1rem;
       font-style: normal;
       font-weight: 700;
@@ -29,14 +30,14 @@
     .btn--close {
       font-size: 1.75rem;
       font-weight: 700;
-      color: #FF7E1B;
+      color: get-color("primary");
     }
   }
 
   .cart-line{
     width: 100%;
     height: 1px;
-    background-color: #E4E9F2;
+    background-color: get-color("alternative");
     margin-bottom: 1.5rem;
   }
 
@@ -60,7 +61,7 @@
     border-radius: 15px;
 
     &:hover {
-      background-color: #eef1f6;
+      background-color: get-color("hover");
     }
 
     .product-cart-photo {
@@ -71,7 +72,7 @@
     .product-cart-details {
       width: 90%;
       .product-cart-name {
-        color: #69707D;
+        color: get-color("base");
         font-size: 1rem;
         font-style: normal;
         font-weight: 400;
@@ -82,7 +83,7 @@
         margin-top: 0.25rem;
 
         .product-cart-price, .product-cart-quantity {
-          color: #69707D;
+          color: getColo r("base");
           font-size: 0.85rem;
           font-style: normal;
           font-weight: 400;
@@ -90,7 +91,7 @@
         }
 
         .product-cart-total {
-          color: #1D2026;
+          color: get-color("secondary");
           font-size: 0.85rem;
           font-style: normal;
           font-weight: 700;
@@ -116,7 +117,7 @@
   .cart-checkout-button {
     width: 100%;
     height: 3.5rem;
-    color: #FFF;
+    color: get-color("white");
     font-size: 1rem;
     font-style: normal;
     font-weight: 700;
@@ -124,7 +125,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: hsla(26, 100%, 55%, 1);
+    background-color: get-color("primary");
     border-radius: 10px;
     margin-top: 1.5rem;
 
@@ -135,7 +136,7 @@
 
   .cart-empty-msg {
     width: 100%;
-    color: #69707D;
+    color: get-color("base");
     text-align: center;
     font-size: 1rem;
     font-style: normal;
@@ -156,7 +157,7 @@
     }
 
     .thanks {
-      color: #69707D;
+      color: get-color("base");
       font-size: 0.9rem;
       font-style: normal;
       font-weight: 700;
@@ -166,7 +167,7 @@
     }
 
     .next-time {
-      color: #1D2026;
+      color: get-color("secondary");
       font-size: 0.8rem;
       font-style: normal;
       font-weight: 700;

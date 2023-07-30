@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../api/apiInstance";
 import newProducts from "./helpers/newProducts";
 import quantityProduct from "./helpers/quantityProduct";
-import { data, sampleProduct } from "./helpers/data-test";
+import { data } from "./helpers/data-test";
 
 const initialState = {
   products: data,
@@ -70,23 +70,6 @@ const productsSlice = createSlice({
 
       localStorage.setItem('favorites', JSON.stringify(state.favoriteProducts))
     },
-    // Add a product with quantity to cart products and set in local storage
-    addProductToCart: (state, action) => {
-
-      const idProduct = action.payload.id
-
-      state.products = quantityProduct(state.products, idProduct, 1)
-
-      const findProduct = state.cartProducts.find(elem => elem.id === idProduct)
-
-      if(findProduct === undefined){
-        state.cartProducts = [ ...state.cartProducts, { ...action.payload, quantity: 1 } ]
-      } else {
-        state.cartProducts = quantityProduct(state.cartProducts, idProduct, 1)
-      }
-
-      localStorage.setItem('cart', JSON.stringify(state.cartProducts))
-    },
     // Reset cart products to cero and set in local storage
     resetCart: (state, action) => {
       
@@ -96,7 +79,7 @@ const productsSlice = createSlice({
 
       localStorage.setItem('cart', JSON.stringify(state.cartProducts))
     },
-    // Delet a product in cart products and set in local storage
+    // Delect a product in cart products and set in local storage
     deleteProductCart: (state, action) => {
 
       const idProduct = action.payload
@@ -104,18 +87,6 @@ const productsSlice = createSlice({
       state.products = quantityProduct(state.products, idProduct, 0)
 
       state.cartProducts = state.cartProducts.filter(product => product.id !== idProduct)
-
-      localStorage.setItem('cart', JSON.stringify(state.cartProducts))
-    },
-    // Delete a quantity of a product in cart products and set in local storage
-    deleteQuantityProduct: (state, action) => {
-
-      const idProduct = action.payload.id
-
-      if(state.cartProducts.length > 0){
-
-        state.cartProducts = quantityProduct(state.cartProducts, idProduct, -1)
-      }
 
       localStorage.setItem('cart', JSON.stringify(state.cartProducts))
     },
@@ -183,10 +154,8 @@ const productsSlice = createSlice({
 
 export const { 
   addFavorite, 
-  addProductToCart,
   resetCart,
   deleteProductCart,
-  deleteQuantityProduct,
   addSingleProductToCart 
 } = productsSlice.actions
 

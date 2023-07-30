@@ -1,3 +1,4 @@
+import noFoundPhoto from '../../../../../assets/no-photo-found.svg'
 
 export default function PhotoCollection({ images, handlePhotoCollection, section = '', imgPlaced = '' }) {
   return (
@@ -7,7 +8,7 @@ export default function PhotoCollection({ images, handlePhotoCollection, section
             <img 
               key={index}
               className={`${section !== '' ? `${section}-`: ''}collection-photo ${imgPlaced === index ? 'active' : ''}`} 
-              src={img} 
+              src={img ? img : noFoundPhoto} 
               alt="collection-photo" 
               onClick={() => handlePhotoCollection(index)}
               width={88} 

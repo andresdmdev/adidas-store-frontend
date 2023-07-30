@@ -11,8 +11,9 @@ $colors: (
   'white': #fff,
   'black': #000,
   'other': #B6BCC8,
+  'hover': #eff1f4,
 );
 
-@function color($key: 'primary'){
+@function get-color($key: 'primary'){
   @return map-get($colors, $key);
 }

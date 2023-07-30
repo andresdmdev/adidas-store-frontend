@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import '../styles/shoppingStyles.css'
 import CloseBtn from "./CloseBtn"
-import { selectAllShoppings } from "../../../../services/slices/shoppinsSlice"
+import { selectAllShoppings } from "../../../../services/slices/shoppingSlice"
 import ticket from '../../../../assets/ticket.svg'
 
 export default function ShoppingProducts({ handleCloseBtn }) {
@@ -21,7 +21,7 @@ export default function ShoppingProducts({ handleCloseBtn }) {
   ))
 
   return (
-    <div className="shopping-container">
+    <div className="shopping-container" data-testid="shopping-container">
       <div className="shopping-heading">
         <h2>Shopping</h2>
         <CloseBtn className="btn--close" handleClick={handleCloseBtn}  />

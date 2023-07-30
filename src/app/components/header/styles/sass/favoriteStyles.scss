@@ -1,9 +1,10 @@
+@import '../../../../styles/sass/variables';
 
 .favorite-container{
   position: absolute;
   top: 60px;
   width: calc(100% - 48px);
-  background-color: #fff;
+  background-color: get-color("white");
   border-radius: 15px;
   z-index: 2;
   padding: 24px;
@@ -29,14 +30,14 @@
     .btn--close {
       font-size: 1.75rem;
       font-weight: 700;
-      color: #FF7E1B;
+      color: get-color("primary");
     }
   }
 
   .favorite-line{
     width: 100%;
     height: 1px;
-    background-color: #E4E9F2;
+    background-color: get-color("alternative");
     margin-bottom: 1.5rem;
   }
 
@@ -60,7 +61,7 @@
     border-radius: 15px;
 
     &:hover {
-      background-color: #eef1f6;
+      background-color: get-color("hover");
     }
 
     .product-favorite-photo {
@@ -71,7 +72,7 @@
     .product-favorite-details {
       width: 90%;
       .product-favorite-name {
-        color: #69707D;
+        color: get-color("base");
         font-size: 1rem;
         font-style: normal;
         font-weight: 400;
@@ -82,7 +83,7 @@
         margin-top: 0.25rem;
 
         .product-favorite-price {
-          color: #69707D;
+          color: get-color("base");
           font-size: 0.85rem;
           font-style: normal;
           font-weight: 400;
@@ -106,7 +107,7 @@
 
   .favorite-empty-msg {
     width: 100%;
-    color: #69707D;
+    color: get-color("base");
     text-align: center;
     font-size: 1rem;
     font-style: normal;

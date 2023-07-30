@@ -10,13 +10,9 @@ export default function MainSections(){
 
   return (
     <>
-      {
-        status === 'loading' ?
-        <span className="loader"></span> :
-        <>
-         <Outlet />
-        </>
-      }
+        {/* status === 'loading' ?
+        <span className="loader"></span> : */}
+      <Outlet />
     </>
   )
 }

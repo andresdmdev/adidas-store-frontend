@@ -3,11 +3,17 @@ import { GoSearch } from "react-icons/go";
 import { useDispatch } from "react-redux";
 import { getAllProducts, searchProductByName } from "../../../../services/slices/productsSlice";
 import { section } from "../../../../services/slices/validationSlice";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export default function SearchBar({ showSearchMovil }) {
+export default function SearchBar() {
 
   const [inputSearch, setInputSearch] = useState('')
+
+  // Si la url incluye la palabra "producto" la barra de busqueda desaparece
+
+  const locationUrl = useLocation()
+
+  const showSearchMovil = locationUrl.pathname.includes('product')
 
   const dispatch = useDispatch()
 

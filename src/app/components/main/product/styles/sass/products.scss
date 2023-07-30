@@ -1,4 +1,5 @@
 // Design for movil 375px
+@import "../../../../../styles/sass/variables";
 
 .products {
   display: grid;
@@ -21,20 +22,33 @@
     width: 100%;
     border-radius: 18px;
     margin-bottom: 4px;
-
+    
     .img-photo {
-      height: 100%;
       width: 100%;
       border-radius: 15px;
-    }
+      min-width: -webkit-fill-available;
+      min-height: 171px;
+      border: solid 1px get-color("white");
+      object-fit: cover;
 
-    img {
-      border: solid 1px transparent;
       &:hover {
-        border: solid 1px #FF7E1B;
+        border: solid 1px get-color("primary");
+      }
+
+      &.skelleton {
+        animation: skelletonAnimation 1s linear infinite alternate;
+      }
+  
+      @keyframes skelletonAnimation {
+        0% {
+          background-color: hsl(200, 20%, 70%);
+        }
+  
+        100% {
+          background-color: hsl(200, 20%, 80%);
+        }
       }
     }
-
     .product-fav-icon {
       position: absolute;
       top: 15px;
@@ -43,7 +57,7 @@
       height: 20px;
 
       .img-fav-icon, .img-fav-icon-fill {
-        color: #FF7E1B;
+        color: get-color("primary");
         font-size: 1.2rem;
       }
 
@@ -57,13 +71,13 @@
       width: 35px;
       height: 25px;
       border-radius: 0.375rem 0rem 0rem 0.375rem;
-      background: #FFEEE2;
+      background: get-color("ternary");
       display: flex;
       justify-content: center;
       align-items: center;
       
       i {
-        color: #FF7E1B;
+        color: get-color("primary");
         font-size: 0.75rem;
         font-style: normal;
         font-weight: 700;
@@ -79,7 +93,7 @@
     height: auto;
 
     .product-card-name {
-      color: #1D2026;
+      color: get-color("secondary");
       font-size: 0.75rem;
       font-style: normal;
       font-weight: 700;
@@ -95,7 +109,7 @@
       justify-content: flex-start;
 
       .product-card-price {
-        color: #1D2026;
+        color: get-color("secondary");
         font-size: 0.725rem;
         font-style: normal;
         font-weight: 700;
@@ -103,7 +117,7 @@
       }
     
       .product-card-discount {
-        color: #B6BCC8;
+        color: get-color("other");
         font-size: 0.55rem;
         font-style: normal;
         font-weight: 700;
@@ -129,7 +143,7 @@
   }
 
   h1 {
-    color: #1D2026;
+    color: get-color("secondary");
     font-size: 2.25rem;
     font-style: normal;
     font-weight: 700;
@@ -137,7 +151,7 @@
   }
 
   h2 {
-    color: #69707D;
+    color: get-color("base");
     font-size: 1rem;
     font-style: normal;
     font-weight: 700;
@@ -158,18 +172,18 @@
       height: auto;
       .github-link {
         font-size: 2.1rem;
-        color: #1D2026;
+        color: get-color("secondary");
 
         &:hover {
-          color: #FF7E1B;
+          color: get-color("primary");
         }
       }
       .linkedind-link {
         font-size: 2.5rem;
-        color: #1D2026;
+        color: get-color("secondary");
 
         &:hover {
-          color: #FF7E1B;
+          color: get-color("primary");
         }
       }
     }
@@ -181,7 +195,7 @@
 @media (min-width: 769px) and (max-width: 1439px) {
   
   .products {
-    grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(232px, auto));
     margin-top: 60px;
     gap: 12px;
     margin-left: 0;
@@ -195,10 +209,11 @@
         border-radius: 18px;
         margin-bottom: 8px;
 
-        img {
-          border: solid 1px transparent;
+        .img-photo {
+          min-height: 234px;
+          border: solid 1px get-color("white");
           &:hover {
-            border: solid 1px #FF7E1B;
+            border: solid 1px get-color("primary");
           }
         }
 
@@ -233,7 +248,7 @@
         height: auto;
 
         &:hover {
-          color: #FF7E1B;
+          color: get-color("primary");
         }
       }
   
@@ -244,7 +259,7 @@
           line-height: 1.2rem;
         
           &:hover {
-            color: #FF7E1B;
+            color: get-color("primary");
           }
         }
       
@@ -263,7 +278,7 @@
 
 @media (min-width: 1440px) {
   .products {
-    grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(232px, auto));
     margin-top: 75px;
   }
   
@@ -275,10 +290,11 @@
         border-radius: 18px;
         margin-bottom: 8px;
 
-        img {
-          border: solid 1px transparent;
+        .img-photo { 
+          min-height: 234px;
+          border: solid 1px get-color("white");
           &:hover {
-            border: solid 1px #FF7E1B;
+            border: solid 1px get-color("primary");
           }
         }
 
@@ -314,7 +330,7 @@
         height: auto;
 
         &:hover {
-          color: #FF7E1B;
+          color: get-color("primary");
         }
       }
   
@@ -325,7 +341,7 @@
           line-height: 1.2rem;
         
           &:hover {
-            color: #FF7E1B;
+            color: get-color("primary");
           }
         }
       
