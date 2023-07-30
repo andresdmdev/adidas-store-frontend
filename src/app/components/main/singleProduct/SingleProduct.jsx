@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { searchSingleProductById, selectSingleProduct } from "../../../../services/slices/productsSlice";
 import './styles/singleProduct.css'
 import CarrouselSingleProduct from "./components/CarrouselSingleProduct";
@@ -15,11 +15,11 @@ export default function SingleProduct(){
 
   const dispatch = useDispatch()
   
-  const { id } = useParams()
+  const { pathname } = useLocation()
 
   useEffect(() => {
-    dispatch(searchSingleProductById(id))
-  }, [dispatch, searchSingleProductById, id]) 
+    dispatch(searchSingleProductById(pathname.slice(9)))
+  }, [pathname, searchSingleProductById]) 
 
   const product = useSelector(selectSingleProduct)
 
@@ -30,15 +30,15 @@ export default function SingleProduct(){
   }
 
   return (
-    <div className="product-container">
-      <div className="product-photo-section">
+    <div className="product-container" data-testid="productContainer">
+      <div className="product-photo-section" data-testid="productPhotoSection">
         <CarrouselSingleProduct images={images} handleShowPhotoGallery={handleShowPhotoGallery} />
         { 
           photoGallery &&
           <GallerySingleProduct images={images} handleShowPhotoGallery={handleShowPhotoGallery} />
         }
       </div>
-      <div className="product-info-section">
+      <div className="product-info-section" data-testid="productInfoSection">
         <span className="product-category">{product.breadcrumbs}</span>
         <div className="product-title-container">
           <h1>{product.name}</h1>
@@ -51,7 +51,7 @@ export default function SingleProduct(){
         </div>
         <p className="product-description">{product.description}</p>
         <ProductPrice price={product.price} discount={product.discount} />
-        <div className="product-info-section-container">
+        <div className="product-info-section-container" data-testid="productQuantitySection">
           <QuantityProducts product={product} />
         </div>
       </div>
