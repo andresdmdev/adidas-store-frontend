@@ -5,7 +5,7 @@ module.exports = {
 
   //ModuleNameMapper sólo si ocupamos importar CSS en nuestros componentes para el testing
   moduleNameMapper: {
-      '\\.(css|less|sass|scss)$': '<rootDir>/src/test/styleMock.js',
+      '\\.(css|less|sass|scss)$': '<rootDir>/src/tests/mocks/styleMock.js',
       "^.+\\.svg$": "<rootDir>/svgTransform.js",
       setupFilesAfterEnv: ["<rootDir>/setupCryptId.js"]
   },

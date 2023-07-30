@@ -47,6 +47,7 @@ header {
 }
 .header-menu-section--movil .header-menu-section-container--movil .header-menu-list--movil li a {
   color: #1D2026;
+  text-transform: capitalize;
 }
 .header-menu-section--movil .header-menu-section-container--movil .header-menu-list--movil li a.active {
   color: #FF7E1B;
@@ -167,6 +168,7 @@ header {
   }
   .header-menu-list li a {
     color: #1D2026;
+    text-transform: capitalize;
   }
   .header-menu-list li a.active {
     color: #FF7E1B;
@@ -233,6 +235,7 @@ header {
   }
   .header-menu-list li a {
     color: #1D2026;
+    text-transform: capitalize;
   }
   .header-menu-list li a.active {
     font-weight: bold;

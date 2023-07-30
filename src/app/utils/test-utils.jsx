@@ -1,5 +1,4 @@
 import React from "react";
-import validationSlice from "../../services/slices/validationSlice";
 import { Provider } from "react-redux";
 import { render } from "@testing-library/react";
 import { setupStore } from "../../services/store/store";
@@ -8,7 +7,7 @@ export function renderWithProviders(
   ui,
   {
     preloadedState = {},
-    store = setupStore({ reducer: { user: validationSlice }, preloadedState }),
+    store = setupStore(preloadedState),
     ...renderOptions
   } = {}
 ) {

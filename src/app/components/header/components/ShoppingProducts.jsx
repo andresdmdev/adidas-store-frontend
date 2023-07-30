@@ -21,7 +21,7 @@ export default function ShoppingProducts({ handleCloseBtn }) {
   ))
 
   return (
-    <div className="shopping-container">
+    <div className="shopping-container" data-testid="shopping-container">
       <div className="shopping-heading">
         <h2>Shopping</h2>
         <CloseBtn className="btn--close" handleClick={handleCloseBtn}  />

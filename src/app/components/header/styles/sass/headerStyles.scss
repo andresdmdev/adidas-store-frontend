@@ -50,6 +50,7 @@ header {
         
         a {
           color: #1D2026;
+          text-transform: capitalize;
 
           &.active {
             color: #FF7E1B;
@@ -185,6 +186,7 @@ header {
 
         a {
           color: #1D2026;
+          text-transform: capitalize;
 
           &.active {
             color: #FF7E1B;
@@ -265,6 +267,7 @@ header {
       line-height: 1.625rem; 
       a {
         color: #1D2026;
+        text-transform: capitalize;
 
         &.active {
           font-weight: bold;

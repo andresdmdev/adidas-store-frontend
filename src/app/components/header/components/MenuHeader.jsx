@@ -1,16 +1,17 @@
 import { useState } from "react"
 import menuLogo from '../../../../assets/menu-logo.svg'
 import { MdClose } from "react-icons/md";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getAllProducts } from "../../../../services/slices/productsSlice";
 import { section } from "../../../../services/slices/validationSlice";
+
+const menuOptions = ['collection', 'men', 'women', 'offers', 'contact']
 
 export default function MenuHeader(){
 
   const [showMenu, setShowMenu] = useState(false)
 
-  const navigation = useNavigate()
   const dispatch = useDispatch()
   const {pathname} = useLocation()
 
@@ -20,12 +21,18 @@ export default function MenuHeader(){
     dispatch(section(''))
   }
 
-  const handleNavigationPage = (e, page) => {
-    e.preventDefault()
+  const handleNavigationPage = () => {
     dispatch(getAllProducts())
     dispatch(section(''))
-    navigation(`/${page}`)
   }
+
+  const menuLink = menuOptions.map(option => {
+    return (
+      <li key={option}>
+        <Link to={option} onClick={handleNavigationPage} className={`${pathname.includes(`/${option}`) ? 'active' : ''}`}>{option}</Link>
+      </li>
+    )
+  })
 
   return (
     <div className='header-menu'>
@@ -41,11 +48,7 @@ export default function MenuHeader(){
               </button>
             }
             <ul className={`header-menu-list${showMenu ? '--movil': ''}`}>
-              <li><a href="#" onClick={(e) => handleNavigationPage(e, 'collection')} className={`${pathname.includes('collection') ? 'active' : ''}`}>Collections</a></li>
-              <li><a href="#" onClick={(e) => handleNavigationPage(e, 'men')} className={`${pathname.includes('/men') ? 'active' : ''}`}>Men</a></li>
-              <li><a href="#" onClick={(e) => handleNavigationPage(e, 'women')} className={`${pathname.includes('women') ? 'active' : ''}`}>Women</a></li>
-              <li><a href="#" onClick={(e) => handleNavigationPage(e, 'offers')} className={`${pathname.includes('offers') ? 'active' : ''}`}>Offers</a></li>
-              <li><a href="#" onClick={(e) => handleNavigationPage(e, 'contact')} className={`${pathname.includes('contact') ? 'active' : ''}`}>Contact</a></li>
+              {menuLink}
             </ul>
           </div>
           <div className='header-menu-section-background' onClick={handleShowMenu}></div>

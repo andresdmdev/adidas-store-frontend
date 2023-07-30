@@ -34,14 +34,14 @@ export default function FavoriteProducts({ handleCloseBtn }) {
           <span className="product-favorite-price">{elem.breadcrumbs} </span>
         </div>
       </div>
-      <button className="heart-container" name='trash' aria-label='trash' onClick={(e) => handleDeleteFavoriteProduct(e, elem)}>
+      <button className="heart-container" name='trash' aria-label='trash' data-testid="trash-product-fav" onClick={(e) => handleDeleteFavoriteProduct(e, elem)}>
         <AiFillHeart fontSize={16} color="#FF7E1B" />
       </button>
     </article>
   ))
 
   return (
-    <div className="favorite-container">
+    <div className="favorite-container" data-testid="favoriteProductsContainer">
       <div className="favorite-heading">
         <h2>Favorites</h2>
         <CloseBtn handleClick={handleCloseBtn}  />
@@ -52,7 +52,7 @@ export default function FavoriteProducts({ handleCloseBtn }) {
         data.length === 0 ? 
         <span className="favorite-empty-msg">You don't have favorite products.</span>
         :
-        <div className="favorite-products">{products}</div>
+        <div className="favorite-products" data-testid="favoriteProducts">{products}</div>
       }
     </div>
   )

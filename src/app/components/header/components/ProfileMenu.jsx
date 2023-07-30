@@ -11,7 +11,7 @@ export default function ProfileMenu() {
   }
 
   return (
-    <div className="profile-menu-container">
+    <div className="profile-menu-container" data-testid="profile-menu-container">
       <h2>Andres Marquez</h2>
       <span className="divider"></span>
       <div className="menu-list">
