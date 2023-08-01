@@ -5,7 +5,7 @@ import quantityProduct from "./helpers/quantityProduct";
 import { data } from "./helpers/data-test";
 
 const initialState = {
-  products: data,
+  products: [],
   status: 'idle',
   error: null,
   singleProduct: {},
