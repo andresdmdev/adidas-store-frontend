@@ -24,6 +24,7 @@ export default function MenuHeader(){
   const handleNavigationPage = () => {
     dispatch(getAllProducts())
     dispatch(section(''))
+    setShowMenu(false)
   }
 
   const menuLink = menuOptions.map(option => {

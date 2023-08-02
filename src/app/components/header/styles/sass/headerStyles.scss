@@ -20,7 +20,7 @@ header {
   height: 100%;
   z-index: 2;
   display: flex;
-  background-color: get-color("black");
+  background-color: rgba(0, 0, 0, 0.5);
 
   .header-menu-section-container--movil {
     width: 60%;
