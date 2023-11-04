@@ -13,7 +13,7 @@ This app is a store with adidas products. It shows products, ordered by offers, 
 
 <p align="center" width="100%">
 
-  [![web](./src/assets/readme/web_btn.svg)](https://andres-webdev.github.io/adidas-store-frontend/)
+  [![web](./src/assets/readme/web_btn.svg)](https://andresmfdev.github.io/adidas-store-frontend/)
 </p>
 
 ## Stack used for this project
